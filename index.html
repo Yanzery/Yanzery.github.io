@@ -153,6 +153,84 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-前端跨域的理解和解决方案总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/20/前端跨域的理解和解决方案总结/">前端跨域的理解和解决方案总结</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/20/前端跨域的理解和解决方案总结/" class="archive-article-date">
+  	<time datetime="2018-10-19T16:44:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="何为跨域？"><a href="#何为跨域？" class="headerlink" title="何为跨域？"></a>何为跨域？</h1><p>首先，我们得先理解一下何为<strong>跨域</strong>？所谓跨域，即网站的协议名 protocol（例如 http ://） 、域名 host （例如：<a href="http://www.example.com）、端口号" target="_blank" rel="noopener">www.example.com）、端口号</a> port (例如 80 ，默认端口可以省略) 这三个中的任意一个不同，网站之间的数据传输或者请求就属于跨域请求了。</p>
+<p>这是由于浏览器的同源策略，为了防范跨站脚本的攻击，禁止客户端脚本对不同域的服务进行跨站调用，但是跨域并非浏览器限制了发起跨站请求，而是跨站请求可以正常发起，但返回结果被浏览器拦截了。有些浏览器不允许从HTTPS协议的域 跨域访问 HTTP协议，比如Chrome和Firefox，这些浏览器在请求还未发出的时候就会拦截请求，这是一个特例。如果是非同源，共有三种行为受到限制：（1）cookie、LocalStorage 和 IndexDB 无法读取；（2）DOM 无法获得；（3）AJAX请求不能发送。</p>
+<p>【这里再解释一下<a href="https://developer.mozilla.org/zh-CN/docs/Archive/Misc_top_level/Same-origin_policy_for_file:_URIs" target="_blank" rel="noopener">同源</a>（具体定义可以查看 MDN），如果两个页面的协议，端口（如果有指定）和域名都相同，则两个页面具有相同的源。IE 有例外，一是授信范围：两个相互之间高度互信的域名，不遵守同源策略的限制；二是端口：IE 未将端口号加入到同源策略的组成成分中。更多有关源的介绍可以查看 MDN ：<a href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy】" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy】</a></p>
+        
+          <a class="article-more-a" href="/2018/10/20/前端跨域的理解和解决方案总结/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/20/前端跨域的理解和解决方案总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-《谁动了我的奶酪》" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -317,6 +395,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">书评</a>
