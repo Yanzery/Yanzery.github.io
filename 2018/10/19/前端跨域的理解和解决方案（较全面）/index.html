@@ -9,14 +9,14 @@
   <title>前端跨域的理解和解决方案（较全面） | YanzeryZero</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="何为跨域？首先，我们得先理解一下何为跨域？所谓跨域，即网站的协议名 protocol（例如 http ://） 、域名 host （例如：www.example.com）、端口号 port (例如 80 ，默认端口可以省略) 这三个中的任意一个不同，网站之间的数据传输或者请求就属于跨域请求了。 这是由于浏览器的同源策略，为了防范跨站脚本的攻击，禁止客户端脚本对不同域的服务进行跨站调用，但是跨域并非">
-<meta name="keywords" content="前端 跨域">
+<meta name="keywords" content="前端 - 跨域">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端跨域的理解和解决方案（较全面）">
 <meta property="og:url" content="http://www.yanzery.cn/2018/10/19/前端跨域的理解和解决方案（较全面）/index.html">
 <meta property="og:site_name" content="YanzeryZero">
 <meta property="og:description" content="何为跨域？首先，我们得先理解一下何为跨域？所谓跨域，即网站的协议名 protocol（例如 http ://） 、域名 host （例如：www.example.com）、端口号 port (例如 80 ，默认端口可以省略) 这三个中的任意一个不同，网站之间的数据传输或者请求就属于跨域请求了。 这是由于浏览器的同源策略，为了防范跨站脚本的攻击，禁止客户端脚本对不同域的服务进行跨站调用，但是跨域并非">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-19T15:28:17.902Z">
+<meta property="og:updated_time" content="2018-10-19T15:46:05.041Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端跨域的理解和解决方案（较全面）">
 <meta name="twitter:description" content="何为跨域？首先，我们得先理解一下何为跨域？所谓跨域，即网站的协议名 protocol（例如 http ://） 、域名 host （例如：www.example.com）、端口号 port (例如 80 ，默认端口可以省略) 这三个中的任意一个不同，网站之间的数据传输或者请求就属于跨域请求了。 这是由于浏览器的同源策略，为了防范跨站脚本的攻击，禁止客户端脚本对不同域的服务进行跨站调用，但是跨域并非">
@@ -176,6 +176,7 @@
         <h1 id="何为跨域？"><a href="#何为跨域？" class="headerlink" title="何为跨域？"></a>何为跨域？</h1><p>首先，我们得先理解一下何为<strong>跨域</strong>？所谓跨域，即网站的协议名 protocol（例如 http ://） 、域名 host （例如：<a href="http://www.example.com）、端口号" target="_blank" rel="noopener">www.example.com）、端口号</a> port (例如 80 ，默认端口可以省略) 这三个中的任意一个不同，网站之间的数据传输或者请求就属于跨域请求了。</p>
 <p>这是由于浏览器的同源策略，为了防范跨站脚本的攻击，禁止客户端脚本对不同域的服务进行跨站调用，但是跨域并非浏览器限制了发起跨站请求，而是跨站请求可以正常发起，但返回结果被浏览器拦截了。有些浏览器不允许从HTTPS协议的域 跨域访问 HTTP协议，比如Chrome和Firefox，这些浏览器在请求还未发出的时候就会拦截请求，这是一个特例。如果是非同源，共有三种行为受到限制：（1）cookie、LocalStorage 和 IndexDB 无法读取；（2）DOM 无法获得；（3）AJAX请求不能发送。</p>
 <p>【这里再解释一下<a href="https://developer.mozilla.org/zh-CN/docs/Archive/Misc_top_level/Same-origin_policy_for_file:_URIs" target="_blank" rel="noopener">同源</a>（具体定义可以查看 MDN），如果两个页面的协议，端口（如果有指定）和域名都相同，则两个页面具有相同的源。IE 有例外，一是授信范围：两个相互之间高度互信的域名，不遵守同源策略的限制；二是端口：IE 未将端口号加入到同源策略的组成成分中。更多有关源的介绍可以查看 MDN ：<a href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy】" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy】</a></p>
+<a id="more"></a>
 <h2 id="如何去解决？"><a href="#如何去解决？" class="headerlink" title="如何去解决？"></a>如何去解决？</h2><p> 接着，既然我们知道了何为跨域，跨越有时候在实际的开发中有时候又无法避免，下面介绍几种常见的跨域方法：</p>
 <h3 id="1、利用-JSONP-实现跨域"><a href="#1、利用-JSONP-实现跨域" class="headerlink" title="1、利用 JSONP 实现跨域"></a>1、利用 JSONP 实现跨域</h3><p><strong>JSONP</strong> （JSON with Padding）是 JSON 的一种“使用模式”。利用 JSON 实现跨域的原理是：HTML 的 script 标签是不受同源策略的限制的，可以通过 script 标签加载并执行其他的域的 js 文件的。</p>
 <p>例如通过 jQery 封装的方法可以很方便地进行 JSONP 的操作：</p>
@@ -234,7 +235,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">前端 跨域</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端 - 跨域</a>
         		</li>
       		
 		</ul>
@@ -303,6 +304,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/10/19/《谁动了我的奶酪》书评/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
   
     <a href="/2018/10/19/《谁动了我的奶酪》/" id="article-nav-older" class="article-nav-link-wrap">
@@ -466,6 +476,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">前端 跨域</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端 - 跨域</a>
               </li>
             
             <div class="clearfix"></div>
