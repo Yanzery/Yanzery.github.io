@@ -153,6 +153,100 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-关于JavaScript中函数的总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/21/关于JavaScript中函数的总结/">关于JavaScript中函数的总结</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/21/关于JavaScript中函数的总结/" class="archive-article-date">
+  	<time datetime="2018-10-21T11:48:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="函数的定义"><a href="#函数的定义" class="headerlink" title="函数的定义"></a>函数的定义</h3><h4 id="1-直接定义"><a href="#1-直接定义" class="headerlink" title="1.直接定义"></a>1.直接定义</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">abs</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> -x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>函数内部的语句在执行是，一旦执行到return时就执行完毕并将结果返回。如果没有return语句，函数执行完毕后也会返回结果，只是结果是undefined。</p>
+<p>由于函数是一个对象，所以函数名可以视为指向该函数的变量。函数名可以保存在变量，对象，数组中。</p>
+<p>函数还可以被当做参数传递给其他函数，函数也可以返回函数，函数拥有方法。</p>
+<h4 id="2-声明式定义"><a href="#2-声明式定义" class="headerlink" title="2.声明式定义"></a>2.声明式定义</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> abs = <span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> -x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>将匿名函数赋值给了变量，通过变量可以调用该函数。</p>
+<h3 id="函数的调用"><a href="#函数的调用" class="headerlink" title="函数的调用"></a>函数的调用</h3><p>调用一个函数会暂停当前函数的执行，传递控制权和参数给新函数。除了声明的参数，函数还接收两个参数this和arguments。【this的值取决于函数的调用模式】</p>
+<h4 id="函数的调用模式"><a href="#函数的调用模式" class="headerlink" title="函数的调用模式"></a>函数的调用模式</h4><ol>
+<li>方法调用</li>
+<li>函数调用</li>
+<li>构造器调用</li>
+<li>apply调用</li>
+</ol>
+<h5 id="1-方法调用模式"><a href="#1-方法调用模式" class="headerlink" title="1.方法调用模式"></a>1.方法调用模式</h5><p>当函数保存为对象的一个属性时，称为方法，当方法被调用是，this绑定到该对象。该方法可以用this来访问自己所属的对象，所以能从对象中取值或对对象进行修改。<br>通过this取得他们所属对象的上下文的方法称为公共方法。</p>
+<h5 id="2-函数模式的调用"><a href="#2-函数模式的调用" class="headerlink" title="2.函数模式的调用"></a>2.函数模式的调用</h5><p>当函数不是一个对象的属性时就是被当做一个函数来调用，this被绑定到全局。<br>解决方案：在函数内把this赋值给变量that</p>
+<h5 id="3-构造器模式"><a href="#3-构造器模式" class="headerlink" title="3.构造器模式"></a>3.构造器模式</h5><p>如果函数前面带上new调用，会创建一个连接到该函数prototype成员的新对象，this会被绑定到这个新对象上</p>
+<h5 id="4-Apply调用"><a href="#4-Apply调用" class="headerlink" title="4.Apply调用"></a>4.Apply调用</h5><p>apply构建一个参数数组传递给调用函数，apply方法接收两个参数，第一个是绑定this的值，第二个是参数数组，可以自己选择this的值</p>
+<p>调用函数时，按顺序传入参数即可，由于JavaScript允许传入任意个参数而不影响调用，因此传入的参数比定义的参数多也没有关系，虽然函数内部并不需要这些参数；传入的参数比定义的少也没有问题，但由于收到的参数为undefined，计算结果为NaN，要避免收到undefined，可以对参数进行检查。</p>
+<h3 id="arguments"><a href="#arguments" class="headerlink" title="arguments"></a>arguments</h3><p>arguments只在函数内部起作用，并且永远执行当前函数的调用者传入的所有参数，类似Array，拥有length属性。</p>
+<h3 id="返回"><a href="#返回" class="headerlink" title="返回"></a>返回</h3><p>当函数结束时，会把控制权交给调用该函数的程序。<br>return语句使函数提前返回，当return被执行时，函数立即返回而不再执行余下的语句。<br>一个函数总会返回一个值，如果没有就默认返回undefined。<br>如果函数调用是在前面加上new，且返回值不是一个对象，则返回this</p>
+<h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><p>利用arguments可以获得调用者传入的所有参数，即使函数不定义参数，也可以拿到参数的值；而实际上arguments最常用语判断传入参数的个数</p>
+<h3 id="rest参数"><a href="#rest参数" class="headerlink" title="rest参数"></a>rest参数</h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/21/关于JavaScript中函数的总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-前端跨域的理解和解决方案总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -397,11 +491,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color3">书评</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">书评</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
             
             <div class="clearfix"></div>
