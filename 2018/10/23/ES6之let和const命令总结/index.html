@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.yanzery.cn">
-  <title>Archives: 2018/10 | YanzeryZero</title>
+  <title>ES6之let和const命令总结 | YanzeryZero</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录生活、记录技术、记录小美好">
-<meta property="og:type" content="website">
-<meta property="og:title" content="YanzeryZero">
-<meta property="og:url" content="http://www.yanzery.cn/archives/2018/10/index.html">
+  <meta name="description" content="1、 let 命令 1.1基本用法用来声明变量，但是声明的变量只在 let 命令所在的的代码块内有效。  for 循环的计数器，很适合用 let 命令。 for 循环设置循环变量的那部分是一个父作用域，而循环内部是一个单独的子作用域">
+<meta name="keywords" content="ES6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6之let和const命令总结">
+<meta property="og:url" content="http://www.yanzery.cn/2018/10/23/ES6之let和const命令总结/index.html">
 <meta property="og:site_name" content="YanzeryZero">
-<meta property="og:description" content="记录生活、记录技术、记录小美好">
+<meta property="og:description" content="1、 let 命令 1.1基本用法用来声明变量，但是声明的变量只在 let 命令所在的的代码块内有效。  for 循环的计数器，很适合用 let 命令。 for 循环设置循环变量的那部分是一个父作用域，而循环内部是一个单独的子作用域">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-23T12:32:10.907Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YanzeryZero">
-<meta name="twitter:description" content="记录生活、记录技术、记录小美好">
+<meta name="twitter:title" content="ES6之let和const命令总结">
+<meta name="twitter:description" content="1、 let 命令 1.1基本用法用来声明变量，但是声明的变量只在 let 命令所在的的代码块内有效。  for 循环的计数器，很适合用 let 命令。 for 循环设置循环变量的那部分是一个父作用域，而循环内部是一个单独的子作用域">
   
     <link rel="alternative" href="/atom.xml" title="YanzeryZero" type="application/atom+xml">
   
@@ -147,36 +149,90 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-ES6之let和const命令总结" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/23/ES6之let和const命令总结/" class="archive-article-date">
-  	<time datetime="2018-10-23T12:30:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-23</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/23/ES6之let和const命令总结/">ES6之let和const命令总结</a>
+    <h1 class="article-title" itemprop="name">
+      ES6之let和const命令总结
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/10/23/ES6之let和const命令总结/" class="archive-article-date">
+  	<time datetime="2018-10-23T12:30:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1、-let-命令"><a href="#1、-let-命令" class="headerlink" title="1、 let 命令"></a>1、 let 命令</h3><hr>
+<h4 id="1-1基本用法"><a href="#1-1基本用法" class="headerlink" title="1.1基本用法"></a>1.1基本用法</h4><p>用来声明变量，但是声明的变量只在 let 命令所在的的代码块内有效。</p>
+<ul>
+<li>for 循环的计数器，很适合用 let 命令。</li>
+<li>for 循环设置循环变量的那部分是一个父作用域，而循环内部是一个单独的子作用域<a id="more"></a>
+<h4 id="1-2不存在变量提升"><a href="#1-2不存在变量提升" class="headerlink" title="1.2不存在变量提升"></a>1.2不存在变量提升</h4>var 命令会发生变量提升，变量可以在声明之前使用，值为 undefine<h4 id="1-3暂时性死区"><a href="#1-3暂时性死区" class="headerlink" title="1.3暂时性死区"></a>1.3暂时性死区</h4>只要一进入当前作用域，所要使用的变量就已经存在了，但是不可获取，只有等到变量声明的那一行代码出现，才可以获取和使用该变量。<h4 id="1-4不允许重复声明"><a href="#1-4不允许重复声明" class="headerlink" title="1.4不允许重复声明"></a>1.4不允许重复声明</h4>let不允许在相同作用域内重复声明同一个变量。<br>因此不能再函数内部重新声明参数。<h3 id="2、块级作用域"><a href="#2、块级作用域" class="headerlink" title="2、块级作用域"></a>2、块级作用域</h3></li>
+</ul>
+<hr>
+<p>==全局作用域和函数作用域下==</p>
+<ul>
+<li>变量提升，内层变量可能覆盖外层变量。</li>
+<li>用来计数的循环变量泄漏为全局变量。</li>
+</ul>
+<hr>
+<p>==ES6==</p>
+<ul>
+<li>外层代码块不受内层代码块的影响。</li>
+<li>允许块级作用域的任意嵌套，外层作用域无法读取内层作用域的变量。</li>
+<li>内层作用域可以定义外层作用域的同名变量。</li>
+</ul>
+<hr>
+<p>==块级作用域与函数声明==</p>
+<ul>
+<li>允许在块级作用域之中声明函数。块级作用域之中，函数声明语句的行为类似 let ，在块级作用域之外不可引见。但是幻术声明类似 var ，即会提升到全局作用域或函数作用域的头部，还会提升到所在的块级作用域的头部。</li>
+<li>避免在块级作用域内声明函数，如果需要应该写成函数表达式，而不是含税声明语句。<h3 id="3、const-命令"><a href="#3、const-命令" class="headerlink" title="3、const 命令"></a>3、const 命令</h3><h4 id="3-1-基本用法"><a href="#3-1-基本用法" class="headerlink" title="3.1 基本用法"></a>3.1 基本用法</h4></li>
+<li>const 声明一个只读的常量</li>
+<li>只声明不赋值会报错。只在声明所在的块级作用域有效，存在暂时性死区，只能自声明的位置后使用。</li>
+<li>不可重复使用。</li>
+<li>const是指变量指向的那个内存地址不得改动。对于简单类型的数据（数值、字符串、布尔值）值就保存在变量所指向的那个内存地址；而对于复合型的数据（对象和数组），变量指向的内存地址保存的只是一个指针。const只能保证这个指针是固定的。</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -188,133 +244,139 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.yanzery.cn/2018/10/23/ES6之let和const命令总结/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/21/关于JavaScript中函数的总结/" class="archive-article-date">
-  	<time datetime="2018-10-21T11:48:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-21</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/10/21/关于JavaScript中函数的总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于JavaScript中函数的总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/21/关于JavaScript中函数的总结/">关于JavaScript中函数的总结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、-let-命令"><span class="toc-number">1.</span> <span class="toc-text">1、 let 命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1基本用法"><span class="toc-number">1.1.</span> <span class="toc-text">1.1基本用法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2不存在变量提升"><span class="toc-number">1.2.</span> <span class="toc-text">1.2不存在变量提升</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3暂时性死区"><span class="toc-number">1.3.</span> <span class="toc-text">1.3暂时性死区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4不允许重复声明"><span class="toc-number">1.4.</span> <span class="toc-text">1.4不允许重复声明</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、块级作用域"><span class="toc-number">2.</span> <span class="toc-text">2、块级作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、const-命令"><span class="toc-number">3.</span> <span class="toc-text">3、const 命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-基本用法"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 基本用法</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/20/前端跨域的理解和解决方案总结/" class="archive-article-date">
-  	<time datetime="2018-10-19T16:44:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-20</time>
-</a>
-        </div>
-    	 
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="ES6之let和const命令总结" data-title="ES6之let和const命令总结" data-url="http://www.yanzery.cn/2018/10/23/ES6之let和const命令总结/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"litten-hexo"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/20/前端跨域的理解和解决方案总结/">前端跨域的理解和解决方案总结</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/19/《谁动了我的奶酪》/" class="archive-article-date">
-  	<time datetime="2018-10-19T15:20:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/19/《谁动了我的奶酪》/">《谁动了我的奶酪》</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">书评</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -337,8 +399,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
