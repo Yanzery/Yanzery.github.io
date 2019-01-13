@@ -56,10 +56,10 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/22.jpg?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/22.jpg?v=5.1.4">
 
 
   <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
@@ -267,7 +267,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yanzery">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="image" content="/images/22.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -304,6 +304,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web前端/" itemprop="url" rel="index">
+                    <span itemprop="name">web前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -332,68 +354,18 @@
 
       
         
-          
-            <p>[TOC]</p>
-<h1 id="JavaScript（一）预编译"><a href="#JavaScript（一）预编译" class="headerlink" title="JavaScript（一）预编译"></a>JavaScript（一）预编译</h1><h2 id="1-关于JavaScript"><a href="#1-关于JavaScript" class="headerlink" title="1. 关于JavaScript"></a>1. 关于JavaScript</h2><p>众所周知 JavaScript 是一门脚本语言，为了缩短传统的“编写、编译、链接、运行”过程而创建的计算机编程语言。一个脚本是通常是解释运行而非编译，因此 JavaScript 也是一门解释性语言，即解释一行执行一行。</p>
+          <h1 id="JavaScript（一）预编译"><a href="#JavaScript（一）预编译" class="headerlink" title="JavaScript（一）预编译"></a>JavaScript（一）预编译</h1><h2 id="1-关于JavaScript"><a href="#1-关于JavaScript" class="headerlink" title="1. 关于JavaScript"></a>1. 关于JavaScript</h2><p>众所周知 JavaScript 是一门脚本语言，为了缩短传统的“编写、编译、链接、运行”过程而创建的计算机编程语言。一个脚本是通常是解释运行而非编译，因此 JavaScript 也是一门解释性语言，即解释一行执行一行。</p>
 <h3 id="JavaScript执行的三部曲"><a href="#JavaScript执行的三部曲" class="headerlink" title="JavaScript执行的三部曲"></a>JavaScript执行的三部曲</h3><ul>
 <li>语法分析</li>
 <li>预编译</li>
-<li>解释执行</li>
-</ul>
-<blockquote>
-<p>语法分析：即先通篇检查有没有语法错误，若出现语法错误，即该模块无法执行；</p>
-</blockquote>
-<blockquote>
-<p>解释执行：即执行代码；</p>
-</blockquote>
-<blockquote>
-<p><strong>预编译：</strong> 可以理解为在函数执行前在内存空间开辟一些空间，存放一些变量和函数；理解了预编译能够加深对作用域的理解；</p>
-</blockquote>
-<h2 id="2-预编译"><a href="#2-预编译" class="headerlink" title="2. 预编译"></a>2. 预编译</h2><h3 id="2-1-预编译的前奏"><a href="#2-1-预编译的前奏" class="headerlink" title="2.1 预编译的前奏"></a>2.1 预编译的前奏</h3><ol>
-<li><p>imply global 暗示全局变量：即任何变量，如果变量未经声明，就赋值，此变量就为全局对象所有。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = 123；</span><br><span class="line">var a = b = 123； // b未经声明就被赋值为123；</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>一切声明的全局变量，全是 window 的属性；</p>
-</li>
-<li>window就是全局的域</li>
-</ol>
-<h3 id="2-2-预编译的四个步骤"><a href="#2-2-预编译的四个步骤" class="headerlink" title="2.2 预编译的四个步骤"></a>2.2 预编译的四个步骤</h3><ol>
-<li>创建 AO （Activation Object 即执行期上下文） 对象；</li>
-<li>找形参和变量声明，将变量和形参名作为 AO 属性名，值为 undefined；</li>
-<li>将实参值和形参统一；</li>
-<li>在函数体里面找函数声明，值赋予函数体；<h4 id="例如："><a href="#例如：" class="headerlink" title="例如："></a>例如：</h4></li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span> (<span class="params">a</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);<span class="comment">//a1</span></span><br><span class="line">     <span class="keyword">var</span> a = <span class="number">123</span>;</span><br><span class="line"></span><br><span class="line">     <span class="built_in">console</span>.log(a);<span class="comment">//a2</span></span><br><span class="line"></span><br><span class="line">     <span class="function"><span class="keyword">function</span> <span class="title">a</span> (<span class="params"></span>) </span>&#123;&#125;<span class="comment">//函数声明</span></span><br><span class="line">     <span class="built_in">console</span>.log(a)<span class="comment">//a3</span></span><br><span class="line"></span><br><span class="line">     <span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;<span class="comment">//函数表达式</span></span><br><span class="line"></span><br><span class="line">     <span class="built_in">console</span>.log(b)</span><br><span class="line"></span><br><span class="line">     <span class="function"><span class="keyword">function</span> <span class="title">d</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    fn(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="解析如下："><a href="#解析如下：" class="headerlink" title="解析如下："></a>解析如下：</h4><h5 id="1-预编译过程："><a href="#1-预编译过程：" class="headerlink" title="1. 预编译过程："></a>1. 预编译过程：</h5><ol>
-<li>创建 AO 对象</li>
-<li>找形参和变量声明，将变量和形参名作为 AO 属性名，<br>值为 undefined；</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">AO&#123;</span><br><span class="line">    a : undefined，</span><br><span class="line">    b : undefined，</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>将实参和形参相统一</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">AO&#123;</span><br><span class="line">    a : 1,</span><br><span class="line">    b : undefined，</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>在函数体里面找函数声明，值赋予函数体；</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">AO&#123;</span><br><span class="line">    a : function a () &#123;&#125;,</span><br><span class="line">    b : undefined,</span><br><span class="line">    d : function d () &#123;&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>执行函数</li>
-</ol>
-<h5 id="2-执行函数"><a href="#2-执行函数" class="headerlink" title="2. 执行函数"></a>2. 执行函数</h5><ol>
-<li>首先打印a，在AO对象中寻找a，所以a1为function a () {}</li>
-<li>执行 var a = 123；不完全执行，因为在步骤二中找变量声明，<br>已经把变量提升了，但是a = 123；还没读，所以继续在 AO 对象<br>中寻找属性名 a ，并执行 a = 123，将 a 的值 赋值为123；<br><strong>AO</strong><br>变为：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">AO&#123;</span><br><span class="line">    a : 123,</span><br><span class="line">    ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>因此打印出来的 a，即 a2 为 123；</p>
-<ol start="3">
-<li>函数声明已经变量提升了；a3为123；</li>
-<li>执行 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b = function () &#123;&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>,所以 b 为function () {}</p>
-
-          
+<li>解释执行
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/13/JavaScript基础（一）预编译/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -445,7 +417,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yanzery">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="image" content="/images/22.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -572,7 +544,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yanzery">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="image" content="/images/22.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -700,7 +672,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yanzery">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="image" content="/images/22.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -824,7 +796,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yanzery">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="image" content="/images/22.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -949,7 +921,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yanzery">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="image" content="/images/22.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1092,7 +1064,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="/images/1.jpg"
+                src="/images/22.jpg"
                 alt="Yanzery" />
             
               <p class="site-author-name" itemprop="name">Yanzery</p>
@@ -1112,6 +1084,15 @@
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
             
 
             
@@ -1156,7 +1137,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
