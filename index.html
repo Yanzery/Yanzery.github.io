@@ -262,6 +262,167 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.yanzery.cn/2019/01/14/JavaScript基础（二）作用域/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yanzery">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/22.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YanzeryZero">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/14/JavaScript基础（二）作用域/" itemprop="url">JavaScript基础（二）作用域</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-14T21:37:43+08:00">
+                2019-01-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web前端/" itemprop="url" rel="index">
+                    <span itemprop="name">web前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="一、何为作用域？"><a href="#一、何为作用域？" class="headerlink" title="一、何为作用域？"></a>一、何为作用域？</h2><ul>
+<li>如我们所知的，JavaScript 的函数是一个对象，那么既然是一个对象，就会有属性，然而对象中有一些属性我们可以访问有一些却是我们访问不了的，访问不了的那些是JavaScript引擎存取的，那么我们的作用域[[scope]]就是其中一个。作用域[[scope]]存储了运行期上下文的集合。</li>
+<li>那么问题又来了，执行期上下文又是什么呢，就是当函数执行时，会创建一个称为执行期上下文的内部对象，一个执行上下文定义了一个函数执行时的环境，函数每次执行时对应的执行上下文是独一无二的，并且当函数执行结束时，它所产生的执行期上下文会被销毁。</li>
+<li>接着说到作用域，那也要说一下<strong>作用域链</strong>，作用域[[scope]]中存储的执行期上下文对象的集合呈链式链接，所以叫作用域链。</li>
+<li>那么我们查找变量就是从函数作用域链的顶端依次向下查找<h2 id="二、结合例子讲解"><a href="#二、结合例子讲解" class="headerlink" title="二、结合例子讲解"></a>二、结合例子讲解</h2></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> aa = <span class="number">2</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> aa = <span class="number">3</span>;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">c</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        c();</span><br><span class="line">    &#125;</span><br><span class="line">    b();</span><br><span class="line">    <span class="built_in">console</span>.log(aa);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">a();</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>首先 a函数被 defined，所以自然就产生了它的属性[[scope]],[[scope]]里面存的是作用域链，作用域链自然就是对象的集合，所以此时a在被定义时的作用域链就是此时的所处的执行期上下文，那么这个环境就是全局对象，因此我们的作用域链中仅有一位[0]位– global object（下面简称GO）【因为函数a刚在全局中被定义，那它的执行期上下文自然只有一个全局的对象】具体可看图一：<img src="/2019/01/14/JavaScript基础（二）作用域/1.jpg"></p>
+</li>
+<li><p>接着就是a函数执行，a函数执行，一个函数执行必然产生一个函数独一无二的执行期上下文即产生属于a的AO（acitive object），那么这个AO就是放在作用域链的最顶端（任何环境的作用域链的最顶端一定是该环境下的AO）。所以把AO放在顶端【0】位，那么原来的在第一位的GO就放在第二位，作用域链如图二所示：</p>
+</li>
+<li><p>在a函数执行的中，b被定义，因此b的作用域就是此时所处的环境的执行上下文，即函数a的作用域链，即图二所示；<img src="/2019/01/14/JavaScript基础（二）作用域/2.jpg"></p>
+</li>
+<li>接着b执行，产生自己的执行期上下文，b的AO放在作用域的最顶端，所以此刻b的作用域链即首位[0]–b的AO+b被定义时所处的环境，如图三所示：<img src="/2019/01/14/JavaScript基础（二）作用域/3.jpg"></li>
+<li>再接着c被定义(同理)，c被执行（也同理）</li>
+<li>最后打印出来的aa的值为3；因为b函数执行的作用域链中a的AO跟原本a函数执行的AO是同一个；</li>
+<li>当函数执行结束时，其执行期上下文会被立即销毁，例如b执行完后，那么b的AO会被销毁，但由于a函数还没执行结束，所以a的AO还继续存在。</li>
+<li>当再次调用函数a时，将产生新的作用域链，与之前的是否调用执行没有关系。</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.yanzery.cn/2019/01/13/JavaScript基础（一）预编译/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1074,7 +1235,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
