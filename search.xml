@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[JavaScript基础（三）闭包]]></title>
+    <url>%2F2019%2F01%2F16%2FJavaScript%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%E9%97%AD%E5%8C%85%2F</url>
+    <content type="text"><![CDATA[1. 闭包的定义当内部函数被保存到外部时，将会生成闭包。闭包会导致原有作用域链不释放，造成内存泄漏。 例子112345678910111213function a () &#123; function b() &#123; var bbb = 234; document.write(aaa); &#125; var aaa = 123; return b;&#125;var glob = 100;var demo =a(); demo(); 分析如下： 首先定义函数a a的作用域链为GO； a被执行，进而函数b被定义，b此时的作用域链式啊执行时的作用域链即 AO-&gt;GO,但是函数b始终还没被执行，直到a执行结束时，b才被保存到外部，demo存的的值即是b； 执行demo即执行b,此刻b的作用域链即b自己的AO+b被定义时的环境（AO【此AO为a的AO】+GO） 由此可以看出，a执行完即a的AO理应当被销毁，但是由于b被保存在外部，而b的作用域链中本身就含有a的AO，也就是所说的原有的作用域链还在被占有没有释放，由此会造成内存泄漏； 例子21234567891011121314function test() &#123; var arr = []; for(var i = 0;i &lt; 10;i++) &#123; arr[i] = function () &#123; document.write(i+' '); &#125; &#125; return arr&#125;var myArr = test();for(var j = 0;j &lt; 10;j++) &#123; myArr[j]();&#125; 结果如下： 2. 闭包的作用 实现公有变量（eg：函数累加器） 12345678910111213function a () &#123; var num = 100 function b() &#123; num ++ console.log('num') &#125; return b;&#125;var demo =a();demo(); //101demo(); //102demo(); //103demo(); //104 可以做缓存（存储结构） 12345678910111213141516function eater () &#123; var food = ''; var abj = &#123; eat : function ()&#123; console.log('I am eating' + food); food = ''; &#125;, push : function (myfood) &#123; food = myfood; &#125; &#125; return ob; &#125; var eater1 =eater(); eater1.push(apple); eater1.eat(); //I am eating apple 3. 立即执行函数在实际的应用过程中，有一些函数我们只需要用一次，执行完就不需要了，那么在这里我们可以使用立即执行函数；执行完就被销毁，不再占用空间，但是会执行一次。 1234(function a ()&#123; var a =123; console.log(a); &#125;()) 执行结果如图： 跟一般函数的区别： 形式上不一样，立即执行函数为 ( function(){}() ); 立即执行函数执行完立即被销毁； 其他没什么差别，也可以有函数名，参数，有返回值等； 4. 用立即执行函数解决闭包问题12345678910111213141516function test() &#123; var arr = []; for(var i = 0;i &lt; 10;i++) &#123; (function (j) &#123; arr[j] = function () &#123; document.write(j+' '); &#125; &#125;(i)) &#125; return arr&#125;var myArr = test();for(var j = 0;j &lt; 10;j++) &#123; myArr[j]();&#125; 结果如下：由于for循环里面采用了立即执行函数，立即执行函数的形参为j，实参为i。所以i会及时把值传给j，函数打印的是j的值了，而不再是i，因此最后结果是0123456789.然而如果打印最后i的值，还是10.]]></content>
+      <categories>
+        <category>JavaScript基础</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>JavaScript基础</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[JavaScript基础（二）作用域]]></title>
     <url>%2F2019%2F01%2F14%2FJavaScript%E5%9F%BA%E7%A1%80%EF%BC%88%E4%BA%8C%EF%BC%89%E4%BD%9C%E7%94%A8%E5%9F%9F%2F</url>
     <content type="text"><![CDATA[一、何为作用域？ 如我们所知的，JavaScript 的函数是一个对象，那么既然是一个对象，就会有属性，然而对象中有一些属性我们可以访问有一些却是我们访问不了的，访问不了的那些是JavaScript引擎存取的，那么我们的作用域[[scope]]就是其中一个。作用域[[scope]]存储了运行期上下文的集合。 那么问题又来了，执行期上下文又是什么呢，就是当函数执行时，会创建一个称为执行期上下文的内部对象，一个执行上下文定义了一个函数执行时的环境，函数每次执行时对应的执行上下文是独一无二的，并且当函数执行结束时，它所产生的执行期上下文会被销毁。 接着说到作用域，那也要说一下作用域链，作用域[[scope]]中存储的执行期上下文对象的集合呈链式链接，所以叫作用域链。 那么我们查找变量就是从函数作用域链的顶端依次向下查找二、结合例子讲解 1234567891011121314function a () &#123; var aa = 2; function b () &#123; var aa = 3; function c () &#123; &#125; c(); &#125; b(); console.log(aa);&#125;a(); 首先 a函数被 defined，所以自然就产生了它的属性[[scope]],[[scope]]里面存的是作用域链，作用域链自然就是对象的集合，所以此时a在被定义时的作用域链就是此时的所处的执行期上下文，那么这个环境就是全局对象，因此我们的作用域链中仅有一位[0]位– global object（下面简称GO）【因为函数a刚在全局中被定义，那它的执行期上下文自然只有一个全局的对象】具体可看图一： 接着就是a函数执行，a函数执行，一个函数执行必然产生一个函数独一无二的执行期上下文即产生属于a的AO（acitive object），那么这个AO就是放在作用域链的最顶端（任何环境的作用域链的最顶端一定是该环境下的AO）。所以把AO放在顶端【0】位，那么原来的在第一位的GO就放在第二位，作用域链如图二所示： 在a函数执行的中，b被定义，因此b的作用域就是此时所处的环境的执行上下文，即函数a的作用域链，即图二所示； 接着b执行，产生自己的执行期上下文，b的AO放在作用域的最顶端，所以此刻b的作用域链即首位[0]–b的AO+b被定义时所处的环境，如图三所示： 再接着c被定义(同理)，c被执行（也同理） 最后打印出来的aa的值为3；因为b函数执行的作用域链中a的AO跟原本a函数执行的AO是同一个； 当函数执行结束时，其执行期上下文会被立即销毁，例如b执行完后，那么b的AO会被销毁，但由于a函数还没执行结束，所以a的AO还继续存在。 当再次调用函数a时，将产生新的作用域链，与之前的是否调用执行没有关系。]]></content>
