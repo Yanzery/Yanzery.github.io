@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[CSS 之 BFC]]></title>
+    <url>%2F2019%2F02%2F24%2FCSS-%E4%B9%8B-BFC%2F</url>
+    <content type="text"><![CDATA[BFC何为 BFC 块格式化上下文 （Block Formatting Context，BFC） 是Web页面的可视化CSS渲染的一部分，是布局过程中生成块级盒子的区域，也是浮动元素与其他元素的交互限定区域。 FC 是formatting context的首字母缩写，直译过来是格式化上下文，它是页面中的一块渲染区域，有一套渲染规则，决定了其子元素如何布局，以及和其他元素之间的关系和作用。 如何触发 BFC 根元素或包含根元素的元素 浮动元素（元素的 float 不是 none） 绝对定位元素（元素的 position 为 absolute 或 fixed） 行内块元素（元素的 display 为 inline-block） 表格单元格（元素的 display为 table-cell，HTML表格单元格默认为该值）表格标题（元素的 display 为 table-caption，HTML表格标题默认为该值）匿名表格单元格元素（元素的 display为 table、table-row、 table-row-group、table-header-group、table-footer-group（分别是HTML table、row、tbody、thead、tfoot的默认属性）或 inline-table） overflow 值不为 visible 的块元素 display 值为 flow-root 的元素 contain 值为 layout、content或 strict 的元素 弹性元素（display为 flex 或 inline-flex元素的直接子元素） 网格元素（display为 grid 或 inline-grid 元素的直接子元素） 多列容器（元素的 column-count 或 column-width 不为 auto，包括 column-count 为 1） column-span 为 all 的元素始终会创建一个新的BFC，即使该元素没有包裹在一个多列容器中（标准变更，Chrome bug）。 BFC 的规则 属于同一个 BFC 的两个相邻 Box 垂直排列 属于同一个 BFC 的两个相邻 Box 的 margin 会发生重叠 BFC 中子元素的 margin box 的左边， 与包含块 (BFC) border box的左边相接触 (子元素 absolute 除外) BFC 的区域不会与 float 的元素区域重叠 计算 BFC 的高度时，浮动子元素也参与计算 文字层不会被浮动层覆盖，环绕于周围 BFC 的应用 阻止margin重叠 可以包含浮动元素 —— 清除内部浮动(清除浮动的原理是两个div都位于同一个 BFC 区域之中) 自适应两栏布局 可以阻止元素被浮动元素覆盖]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>CSS 基础</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[JavaScript基础（三）闭包]]></title>
     <url>%2F2019%2F01%2F16%2FJavaScript%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89%E9%97%AD%E5%8C%85%2F</url>
     <content type="text"><![CDATA[1. 闭包的定义当内部函数被保存到外部时，将会生成闭包。闭包会导致原有作用域链不释放，造成内存泄漏。 例子112345678910111213function a () &#123; function b() &#123; var bbb = 234; document.write(aaa); &#125; var aaa = 123; return b;&#125;var glob = 100;var demo =a(); demo(); 分析如下： 首先定义函数a a的作用域链为GO； a被执行，进而函数b被定义，b此时的作用域链式啊执行时的作用域链即 AO-&gt;GO,但是函数b始终还没被执行，直到a执行结束时，b才被保存到外部，demo存的的值即是b； 执行demo即执行b,此刻b的作用域链即b自己的AO+b被定义时的环境（AO【此AO为a的AO】+GO） 由此可以看出，a执行完即a的AO理应当被销毁，但是由于b被保存在外部，而b的作用域链中本身就含有a的AO，也就是所说的原有的作用域链还在被占有没有释放，由此会造成内存泄漏； 例子21234567891011121314function test() &#123; var arr = []; for(var i = 0;i &lt; 10;i++) &#123; arr[i] = function () &#123; document.write(i+' '); &#125; &#125; return arr&#125;var myArr = test();for(var j = 0;j &lt; 10;j++) &#123; myArr[j]();&#125; 结果如下： 2. 闭包的作用 实现公有变量（eg：函数累加器） 12345678910111213function a () &#123; var num = 100 function b() &#123; num ++ console.log('num') &#125; return b;&#125;var demo =a();demo(); //101demo(); //102demo(); //103demo(); //104 可以做缓存（存储结构） 12345678910111213141516function eater () &#123; var food = ''; var abj = &#123; eat : function ()&#123; console.log('I am eating' + food); food = ''; &#125;, push : function (myfood) &#123; food = myfood; &#125; &#125; return ob; &#125; var eater1 =eater(); eater1.push(apple); eater1.eat(); //I am eating apple 3. 立即执行函数在实际的应用过程中，有一些函数我们只需要用一次，执行完就不需要了，那么在这里我们可以使用立即执行函数；执行完就被销毁，不再占用空间，但是会执行一次。 1234(function a ()&#123; var a =123; console.log(a); &#125;()) 执行结果如图： 跟一般函数的区别： 形式上不一样，立即执行函数为 ( function(){}() ); 立即执行函数执行完立即被销毁； 其他没什么差别，也可以有函数名，参数，有返回值等； 4. 用立即执行函数解决闭包问题12345678910111213141516function test() &#123; var arr = []; for(var i = 0;i &lt; 10;i++) &#123; (function (j) &#123; arr[j] = function () &#123; document.write(j+' '); &#125; &#125;(i)) &#125; return arr&#125;var myArr = test();for(var j = 0;j &lt; 10;j++) &#123; myArr[j]();&#125; 结果如下：由于for循环里面采用了立即执行函数，立即执行函数的形参为j，实参为i。所以i会及时把值传给j，函数打印的是j的值了，而不再是i，因此最后结果是0123456789.然而如果打印最后i的值，还是10.]]></content>
