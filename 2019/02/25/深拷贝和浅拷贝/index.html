@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="引言在实际编程中，我们都存在着一种“复制”的现象，对 对象的复制，对数据的复制…那么就来看看在 JavaScript 中复制到底还有着什么样的秘密，这个“=”真的有那么简单吗？ JavaScript 中对象分为基本类型和复合（引用）类型，基本类型存放在栈内存，复合（引用）类型存放在堆内存。【这里建议如果不熟悉 栈内存和堆内存的区别 先熟悉一下会比较理解点】  浅拷贝和深拷贝深拷贝和浅拷贝最根本的区">
+<meta name="description" content="引言在实际编程中，我们都存在着一种“复制”的现象，对 对象的复制，对数据的复制…那么就来看看在 JavaScript 中复制到底还有着什么样的秘密，这个“=”真的有那么简单吗？ JavaScript 中对象分为基本类型和复合（引用）类型，基本类型存放在栈内存，复合（引用）类型存放在堆内存。【这里建议如果不熟悉 栈内存和堆内存的区别 先熟悉一下会比较理解点】">
 <meta name="keywords" content="前端,基础知识">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深拷贝和浅拷贝">
 <meta property="og:url" content="http://www.yanzery.cn/2019/02/25/深拷贝和浅拷贝/index.html">
 <meta property="og:site_name" content="YanzeryZero">
-<meta property="og:description" content="引言在实际编程中，我们都存在着一种“复制”的现象，对 对象的复制，对数据的复制…那么就来看看在 JavaScript 中复制到底还有着什么样的秘密，这个“=”真的有那么简单吗？ JavaScript 中对象分为基本类型和复合（引用）类型，基本类型存放在栈内存，复合（引用）类型存放在堆内存。【这里建议如果不熟悉 栈内存和堆内存的区别 先熟悉一下会比较理解点】  浅拷贝和深拷贝深拷贝和浅拷贝最根本的区">
+<meta property="og:description" content="引言在实际编程中，我们都存在着一种“复制”的现象，对 对象的复制，对数据的复制…那么就来看看在 JavaScript 中复制到底还有着什么样的秘密，这个“=”真的有那么简单吗？ JavaScript 中对象分为基本类型和复合（引用）类型，基本类型存放在栈内存，复合（引用）类型存放在堆内存。【这里建议如果不熟悉 栈内存和堆内存的区别 先熟悉一下会比较理解点】">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-25T14:25:18.574Z">
+<meta property="og:updated_time" content="2019-02-25T14:26:51.710Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深拷贝和浅拷贝">
-<meta name="twitter:description" content="引言在实际编程中，我们都存在着一种“复制”的现象，对 对象的复制，对数据的复制…那么就来看看在 JavaScript 中复制到底还有着什么样的秘密，这个“=”真的有那么简单吗？ JavaScript 中对象分为基本类型和复合（引用）类型，基本类型存放在栈内存，复合（引用）类型存放在堆内存。【这里建议如果不熟悉 栈内存和堆内存的区别 先熟悉一下会比较理解点】  浅拷贝和深拷贝深拷贝和浅拷贝最根本的区">
+<meta name="twitter:description" content="引言在实际编程中，我们都存在着一种“复制”的现象，对 对象的复制，对数据的复制…那么就来看看在 JavaScript 中复制到底还有着什么样的秘密，这个“=”真的有那么简单吗？ JavaScript 中对象分为基本类型和复合（引用）类型，基本类型存放在栈内存，复合（引用）类型存放在堆内存。【这里建议如果不熟悉 栈内存和堆内存的区别 先熟悉一下会比较理解点】">
 
 
 
@@ -364,7 +364,7 @@
 
       
         <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>在实际编程中，我们都存在着一种“复制”的现象，对 对象的复制，对数据的复制…那么就来看看在 JavaScript 中复制到底还有着什么样的秘密，这个“=”真的有那么简单吗？</p>
-<p>JavaScript 中对象分为基本类型和复合（引用）类型，基本类型存放在栈内存，复合（引用）类型存放在堆内存。<br>【这里建议如果不熟悉<a href="http://yanzery.cn/2019/02/25/%E6%A0%88%E5%86%85%E5%AD%98%E5%92%8C%E5%A0%86%E5%86%85%E5%AD%98/" target="_blank" rel="noopener"> 栈内存和堆内存</a>的区别 先熟悉一下会比较理解点】 </p>
+<p>JavaScript 中对象分为基本类型和复合（引用）类型，基本类型存放在栈内存，复合（引用）类型存放在堆内存。<br>【这里建议如果不熟悉<a href="http://yanzery.cn/2019/02/25/%E6%A0%88%E5%86%85%E5%AD%98%E5%92%8C%E5%A0%86%E5%86%85%E5%AD%98/" target="_blank" rel="noopener"> 栈内存和堆内存</a>的区别 先熟悉一下会比较理解点】<br><a id="more"></a></p>
 <h2 id="浅拷贝和深拷贝"><a href="#浅拷贝和深拷贝" class="headerlink" title="浅拷贝和深拷贝"></a>浅拷贝和深拷贝</h2><p>深拷贝和浅拷贝最根本的区别在于是否是真正获取了一个对象的复制实体，而不是引用。</p>
 <ol>
 <li>深拷贝在计算机中开辟了一块内存地址用于存放复制的对象，因此不会影响原来的对象。</li>
