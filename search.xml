@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[栈内存和堆内存]]></title>
+    <url>%2F2019%2F02%2F25%2F%E6%A0%88%E5%86%85%E5%AD%98%E5%92%8C%E5%A0%86%E5%86%85%E5%AD%98%2F</url>
+    <content type="text"><![CDATA[引言JavaScript 中的变量分为 基本类型 和 引用类型。基本类型就是保存在栈内存中的简单数据段，而引用类型指的是那些保存在堆内存中的对象。 基本类型JavaScript 中的基本类型有 Undefined、Null、Boolean、Number 和String，这些类型占有固定大小的空间（而且不大），因此我们可以把他们放在 栈内存，并直接通过值来访问。 引用类型由于引用类型的大小不固定，而且很多时候占用的内存相比较于基本类型大，那么它就适合放在 堆内存中啦！（因为堆字嘛，理所当然，从字面就可以感知到 “乱[大小不固定] 、大”，个人理解哈），但是请记住这样一句话非常重要“JavaScript 不允许去直接使用堆内存”。好，那么问题来了，放在堆里的对象我们得怎么操作。实际上是这样的，在栈内存中会放着 引用类型放在堆中 的那个位置，那么这样就可以通过栈的地址找到堆里面存放着的引用类型啦。 这样是不是很好理解一点呢 栈内存和堆内存栈内存JavaScript 中的栈内存 存放着基本类型和引用类型在堆中对应的地址。基本类型在当前执行环境结束时销毁。 堆内存JavaScript 中的堆内存 存放着引用类型，但其地址放在栈内存中，通过访问栈内存中的内存地址在堆中找到对象，引用类型不会随执行环境结束而销毁，，只有当所有引用它 的变量不存在时这个对象才被垃圾回收机制回收。]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>基础知识</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[CSS 之 BFC]]></title>
     <url>%2F2019%2F02%2F24%2FCSS-%E4%B9%8B-BFC%2F</url>
     <content type="text"><![CDATA[BFC何为 BFC 块格式化上下文 （Block Formatting Context，BFC） 是Web页面的可视化CSS渲染的一部分，是布局过程中生成块级盒子的区域，也是浮动元素与其他元素的交互限定区域。 FC 是formatting context的首字母缩写，直译过来是格式化上下文，它是页面中的一块渲染区域，有一套渲染规则，决定了其子元素如何布局，以及和其他元素之间的关系和作用。 如何触发 BFC 根元素或包含根元素的元素 浮动元素（元素的 float 不是 none） 绝对定位元素（元素的 position 为 absolute 或 fixed） 行内块元素（元素的 display 为 inline-block） 表格单元格（元素的 display为 table-cell，HTML表格单元格默认为该值）表格标题（元素的 display 为 table-caption，HTML表格标题默认为该值）匿名表格单元格元素（元素的 display为 table、table-row、 table-row-group、table-header-group、table-footer-group（分别是HTML table、row、tbody、thead、tfoot的默认属性）或 inline-table） overflow 值不为 visible 的块元素 display 值为 flow-root 的元素 contain 值为 layout、content或 strict 的元素 弹性元素（display为 flex 或 inline-flex元素的直接子元素） 网格元素（display为 grid 或 inline-grid 元素的直接子元素） 多列容器（元素的 column-count 或 column-width 不为 auto，包括 column-count 为 1） column-span 为 all 的元素始终会创建一个新的BFC，即使该元素没有包裹在一个多列容器中（标准变更，Chrome bug）。 BFC 的规则 属于同一个 BFC 的两个相邻 Box 垂直排列 属于同一个 BFC 的两个相邻 Box 的 margin 会发生重叠 BFC 中子元素的 margin box 的左边， 与包含块 (BFC) border box的左边相接触 (子元素 absolute 除外) BFC 的区域不会与 float 的元素区域重叠 计算 BFC 的高度时，浮动子元素也参与计算 文字层不会被浮动层覆盖，环绕于周围 BFC 的应用 阻止margin重叠 可以包含浮动元素 —— 清除内部浮动(清除浮动的原理是两个div都位于同一个 BFC 区域之中) 自适应两栏布局 可以阻止元素被浮动元素覆盖]]></content>
