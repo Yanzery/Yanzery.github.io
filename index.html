@@ -262,6 +262,416 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.yanzery.cn/2019/04/13/HTTP协议/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yanzery">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/22.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YanzeryZero">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/13/HTTP协议/" itemprop="url">HTTP协议</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-13T22:51:02+08:00">
+                2019-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络/" itemprop="url" rel="index">
+                    <span itemprop="name">网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/04/13/HTTP协议/" class="leancloud_visitors" data-flag-title="HTTP协议">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="HTTP的特性"><a href="#HTTP的特性" class="headerlink" title="HTTP的特性"></a>HTTP的特性</h1><ul>
+<li>HTTP协议是构建于TCP/IP协议之上的一个应用层协议，默认端口是80，HTTPS是443</li>
+<li>HTTP是无连接无状态</li>
+<li>永远都是客户端发起请求，服务器回送相应，所以无法实现在客户端没有发起请求的时候，服务器将消息推送给客户端；，</li>
+<li>支持客户/服务器模式，支持基本认证和安全认证。</li>
+<li>简单快速，请求服务时只需传送请求方法和路径，灵活，允许传输任意类型的数据对象。</li>
+<li>HTTP0.9和1.0使用非持续连接，限制每次连接只能处理一个请求，服务器处理完客户的请求并收到客户的应答后就断开连接；HTTP1.1使用持续连接，不必为每一个Web对象创建一个新的连接，一个连接可以传输多个对象，采用这种方式可以节省传输时间。</li>
+<li>无状态：HTTP协议是无状态协议，对于事务处理没有记忆能力，缺少状态意味着后续处理前面信息需要重传，导致每次连接传送的数据量巨大。（因为服务器需要面对很多浏览器的并发访问，为了提高服务器对并发访问的处理能力。）</li>
+</ul>
+<h2 id="HTTP之URL"><a href="#HTTP之URL" class="headerlink" title="HTTP之URL"></a>HTTP之URL</h2><p>HTTP使用统一资源标识符（URI）来传输数据和建立连接，URL是一种特殊类型的URI，包含用于查找某个资源的足够的信息。URL（统一资源定位符）地址；</p>
+<blockquote>
+<p><a href="http://www.aspxfans.com:8080/news/index.asp?boardID=5&amp;ID=24618&amp;page=1#name" target="_blank" rel="noopener">http://www.aspxfans.com:8080/news/index.asp?boardID=5&amp;ID=24618&amp;page=1#name</a></p>
+</blockquote>
+<ul>
+<li>协议：HTTP</li>
+<li>域名：<a href="http://www.aspxfans.com（也可以用IP地址）" target="_blank" rel="noopener">www.aspxfans.com（也可以用IP地址）</a></li>
+<li>端口部分：  “：”隔开，不是必需的，可以是默认</li>
+<li>虚拟目录：域名后的第一个/到最后一个</li>
+<li>文件名：域名后的最后一个/到？或者#为止，不是必需的</li>
+<li>锚：#开始到最后，不是必需</li>
+<li>参数？   # 之间的那部分</li>
+</ul>
+<h3 id="URL和URI的区别："><a href="#URL和URI的区别：" class="headerlink" title="URL和URI的区别："></a>URL和URI的区别：</h3><ol>
+<li>URI是统一资源标识符，用来唯一的标识一个资源（HTML、图像、视频….）。URI的组成为 访问资源的命名机制，存放资源的主机名，资源本身的名称，由路径表示并着重强调资源；</li>
+<li>URL是统一资源定位器，它是一种具体的URI，即URL可以用来标识一个资源，指明了如何locate这个资源；URL由协议，IP地址，主机资源的具体地址</li>
+</ol>
+<h2 id="HTTP的请求和响应"><a href="#HTTP的请求和响应" class="headerlink" title="HTTP的请求和响应"></a>HTTP的请求和响应</h2><h3 id="请求报文："><a href="#请求报文：" class="headerlink" title="请求报文："></a>请求报文：</h3><p>HTTP是以ASCII码传输的。HTTP的请求分为三个部分：请求行（request line）、请求头部（header）、空行和请求数据四个部分组成。</p>
+<ul>
+<li>请求行：请求方法，URL，HTTP协议版本号，</li>
+<li>请求头部：说明服务器要使用的一些附加信息</li>
+<li>请求数据：可以添加任意的其他数据</li>
+</ul>
+<h3 id="响应消息Response"><a href="#响应消息Response" class="headerlink" title="响应消息Response"></a>响应消息Response</h3><p>状态行、消息报头、空行和响应正文</p>
+<ul>
+<li>状态行：协议版本，状态码，状态消息</li>
+<li>消息报头：用来说明客户端要使用的一些附加信息</li>
+<li>空行</li>
+<li>相应正文，服务器返回给客户端的文本信息</li>
+</ul>
+<h2 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h2><ul>
+<li>1xx：指示信息–表示请求已经接收继续处理；</li>
+<li>2xx：成功–表示请求已被成功接收理解接受；</li>
+<li>3xx：重定向–要完成请求必须进行更进一步的操作；</li>
+<li>4xx：客户端错误–请求有语法错误或请求无法实现</li>
+<li>5xx：服务端错误–服务器未能实现合法的请求</li>
+</ul>
+<h3 id="常见的状态码"><a href="#常见的状态码" class="headerlink" title="常见的状态码"></a>常见的状态码</h3><ul>
+<li>200 表示请求被服务器正常处理</li>
+<li>204 表示请求已成功处理但是没有内容返回</li>
+<li>206 服务器已经完成了部分GET请求</li>
+<li>301 表示请求的资源永久地搬到了其他的位置</li>
+<li>302 表示请求的资源临时搬到了其他的位置</li>
+<li>303 表示请求资源存在另一个URI，应使用GET定向获取请求资源</li>
+<li>304 表示客户端发送附带条件的请求（GET方法中的if…）条件不满足</li>
+<li>400 请求报文存在语法错误或参数错误，服务器不理解</li>
+<li>401 发送的请求需要有HTTP认证信息或者是认证失败了</li>
+<li>403 对请求资源的访问被服务器拒绝了</li>
+<li>404 服务器找不到你请求的资源</li>
+<li>500 服务器请求出错</li>
+<li>503 服务器超负载或正停机维护无法处理请求</li>
+</ul>
+<h2 id="HTTP请求方法"><a href="#HTTP请求方法" class="headerlink" title="HTTP请求方法"></a>HTTP请求方法</h2><p>GET、POST、PUT、HEAD、DELET、OPTIONS</p>
+<h3 id="GET和POST的区别"><a href="#GET和POST的区别" class="headerlink" title="GET和POST的区别"></a>GET和POST的区别</h3><ol>
+<li>由于HTML标准对HTTP协议的用法的约定，POST数据是放body,GET数据是放在URL中。但是现代的web server都支持get包含body的请求。</li>
+<li>特定的浏览器（IE）对URL长度的限制是2083字节；理论上没有长度限制，其限制取决于操作系统的支持。URL太长对服务器处理事一种负担，处于安全稳定等方面的考虑，会给URL加长度限制，是对所有的HTTP，于get和post没关系；</li>
+<li>POST比GET安全；通过GET提交数据用户名和密码将明文出现在URL，因为登录页面可能被浏览器缓存。GET提交住居可能会造成Cross-site request forgery攻击。</li>
+<li>GET和POST最大的区别主要是GET请求是幂等性的，POST请求不是。这个是它们本质区别，上面的只是在使用上的区别。</li>
+</ol>
+<h2 id="持久连接"><a href="#持久连接" class="headerlink" title="持久连接"></a>持久连接</h2><p>HTTP协议采用“请求-应答”模式，当使用普通模式的时候，即请求一次就新建一个新连接，完成后就断开连接（无连接的协议）；当使用Keep-Alive模式的时候，Keep-Alive功能使客户端到服务端的连接持续有效，当出现对服务器有后继请求的时候，就可以避免建立或者重新建立连接。</p>
+<p>在HTTP请求头中添加一个字段Connection: Keep-Alive，当服务器收到附带有 Connection: Keep-Alive 的请求时，它也会在响应头中添加一个同样的字段来使用 Keep-Alive 。这样一来，客户端和服务器之间的HTTP连接就会被保持，不会断开（超过 Keep-Alive 规定的时间，意外断电等情况除外），当客户端发送另外一个请求时，就使用这条已经建立的连接。</p>
+<ul>
+<li>HTTP Keep-Alive 简单说就是保持当前的TCP连接，避免了重新建立连接。</li>
+<li>HTTP 长连接不可能一直保持，例如 Keep-Alive: timeout=5, max=100，表示这个TCP通道可以保持5秒，max=100，表示这个长连接最多接收100次请求就断开。</li>
+<li>HTTP 是一个无状态协议，这意味着每个请求都是独立的，Keep-Alive 没能改变这个结果。另外，Keep-Alive也不能保证客户端和服务器之间的连接一定是活跃的，在 HTTP1.1 版本中也如此。唯一能保证的就是当连接被关闭时你能得到一个通知，所以不应该让程序依赖于 Keep-Alive 的保持连接特性，否则会有意想不到的后果。</li>
+</ul>
+<h2 id="HTTP-管线化"><a href="#HTTP-管线化" class="headerlink" title="HTTP 管线化"></a>HTTP 管线化</h2><p>默认情况下 HTTP 协议中每个传输层连接只能承载一个 HTTP 请求和响应，浏览器会在收到上一个请求的响应之后，再发送下一个请求。在使用持久连接的情况下，某个连接上消息的传递类似于请求1 -&gt; 响应1 -&gt; 请求2 -&gt; 响应2 -&gt; 请求3 -&gt; 响应3。</p>
+<p>HTTP Pipelining（管线化）是将多个 HTTP 请求整批提交的技术，在传送过程中不需等待服务端的回应。使用 HTTP Pipelining 技术之后，某个连接上的消息变成了类似这样请求1 -&gt; 请求2 -&gt; 请求3 -&gt; 响应1 -&gt; 响应2 -&gt; 响应3。</p>
+<h2 id="会话跟踪"><a href="#会话跟踪" class="headerlink" title="会话跟踪"></a>会话跟踪</h2><blockquote>
+<p>什么是会话？</p>
+</blockquote>
+<p>客户端打开与服务器的连接发出请求到服务器响应客户端请求的全过程称之为会话。</p>
+<blockquote>
+<p>什么是会话跟踪？</p>
+</blockquote>
+<p>会话跟踪指的是对同一个用户对服务器的连续的请求和接受响应的监视。</p>
+<blockquote>
+<p>会话跟踪常用的方法:</p>
+</blockquote>
+<ol>
+<li>URL 重写</li>
+<li>隐藏表单域</li>
+<li>Cookie</li>
+<li>Session</li>
+</ol>
+<h2 id="HTTPS的工作原理"><a href="#HTTPS的工作原理" class="headerlink" title="HTTPS的工作原理"></a>HTTPS的工作原理</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.yanzery.cn/2019/04/13/TCP协议/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yanzery">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/22.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YanzeryZero">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/13/TCP协议/" itemprop="url">TCP协议</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-13T22:47:07+08:00">
+                2019-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络/" itemprop="url" rel="index">
+                    <span itemprop="name">网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/04/13/TCP协议/" class="leancloud_visitors" data-flag-title="TCP协议">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="TCP的特性"><a href="#TCP的特性" class="headerlink" title="TCP的特性"></a>TCP的特性</h1><ul>
+<li>TCP提供的是一种面向链接的、可靠的字节流服务；</li>
+<li>只能用于广播和多播；</li>
+<li>使用校验和，确认重传机制来保证传输数据的可靠性</li>
+<li>把数据分节进行排序，保证数据的顺序不变和非重复；</li>
+<li>使用滑动窗口机制来实现流量控制，通过动态改变窗口的大小来进行拥塞控制；</li>
+<li>但是TCP不能保证数据一定会被对方接收到，但是她能提供数据的可靠递送和保障的可靠通知。</li>
+<li>基于TCP的应用层协议还有HTTP，SMTP，FTP，Telnet和POP3</li></ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/13/TCP协议/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.yanzery.cn/2019/03/05/先生与夫人/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1509,323 +1919,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yanzery.cn/2019/01/13/JavaScript基础（一）预编译/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yanzery">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/22.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YanzeryZero">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/13/JavaScript基础（一）预编译/" itemprop="url">JavaScript基础（一）预编译</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-13T19:51:00+08:00">
-                2019-01-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript基础/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/01/13/JavaScript基础（一）预编译/" class="leancloud_visitors" data-flag-title="JavaScript基础（一）预编译">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="JavaScript（一）预编译"><a href="#JavaScript（一）预编译" class="headerlink" title="JavaScript（一）预编译"></a>JavaScript（一）预编译</h1><h2 id="1-关于JavaScript"><a href="#1-关于JavaScript" class="headerlink" title="1. 关于JavaScript"></a>1. 关于JavaScript</h2><p>众所周知 JavaScript 是一门脚本语言，为了缩短传统的“编写、编译、链接、运行”过程而创建的计算机编程语言。一个脚本是通常是解释运行而非编译，因此 JavaScript 也是一门解释性语言，即解释一行执行一行。<br></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/13/JavaScript基础（一）预编译/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yanzery.cn/2018/10/24/ES6之变量的解构和解析/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yanzery">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/22.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YanzeryZero">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/24/ES6之变量的解构和解析/" itemprop="url">ES6之变量的解构和解析</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-24T13:42:54+08:00">
-                2018-10-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ES6/" itemprop="url" rel="index">
-                    <span itemprop="name">ES6</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/10/24/ES6之变量的解构和解析/" class="leancloud_visitors" data-flag-title="ES6之变量的解构和解析">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="1、数组的解构赋值"><a href="#1、数组的解构赋值" class="headerlink" title="1、数组的解构赋值"></a>1、数组的解构赋值</h3><hr>
-<p><strong>基本用法</strong><br>按照一定的模式，从数组和对象中提取值，对变量进行赋值。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [a,b,c] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>];</span><br></pre></td></tr></table></figure>
-<p>如果解构不成功就是 undefine，如下就是解构不成功的；</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/24/ES6之变量的解构和解析/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1878,7 +1971,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1889,7 +1982,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1900,7 +1993,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

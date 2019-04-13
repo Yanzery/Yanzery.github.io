@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="前端,跨域,">
+  <meta name="keywords" content="网络,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="何为跨域？首先，我们得先理解一下何为跨域？所谓跨域，即网站的协议名 protocol（例如 http ://） 、域名 host （例如：www.example.com）、端口号 port (例如 80 ，默认端口可以省略) 这三个中的任意一个不同，网站之间的数据传输或者请求就属于跨域请求了。 这是由于浏览器的同源策略，为了防范跨站脚本的攻击，禁止客户端脚本对不同域的服务进行跨站调用，但是跨域并非">
-<meta name="keywords" content="前端,跨域">
+<meta name="description" content="HTTP的特性 HTTP协议是构建于TCP/IP协议之上的一个应用层协议，默认端口是80，HTTPS是443 HTTP是无连接无状态 永远都是客户端发起请求，服务器回送相应，所以无法实现在客户端没有发起请求的时候，服务器将消息推送给客户端；， 支持客户/服务器模式，支持基本认证和安全认证。 简单快速，请求服务时只需传送请求方法和路径，灵活，允许传输任意类型的数据对象。 HTTP0.9和1.0使用非">
+<meta name="keywords" content="网络">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端跨域的理解和解决方案总结">
-<meta property="og:url" content="http://www.yanzery.cn/2018/10/20/前端跨域的理解和解决方案总结/index.html">
+<meta property="og:title" content="HTTP协议">
+<meta property="og:url" content="http://www.yanzery.cn/2019/04/13/HTTP协议/index.html">
 <meta property="og:site_name" content="YanzeryZero">
-<meta property="og:description" content="何为跨域？首先，我们得先理解一下何为跨域？所谓跨域，即网站的协议名 protocol（例如 http ://） 、域名 host （例如：www.example.com）、端口号 port (例如 80 ，默认端口可以省略) 这三个中的任意一个不同，网站之间的数据传输或者请求就属于跨域请求了。 这是由于浏览器的同源策略，为了防范跨站脚本的攻击，禁止客户端脚本对不同域的服务进行跨站调用，但是跨域并非">
+<meta property="og:description" content="HTTP的特性 HTTP协议是构建于TCP/IP协议之上的一个应用层协议，默认端口是80，HTTPS是443 HTTP是无连接无状态 永远都是客户端发起请求，服务器回送相应，所以无法实现在客户端没有发起请求的时候，服务器将消息推送给客户端；， 支持客户/服务器模式，支持基本认证和安全认证。 简单快速，请求服务时只需传送请求方法和路径，灵活，允许传输任意类型的数据对象。 HTTP0.9和1.0使用非">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-02T18:02:30.383Z">
+<meta property="og:updated_time" content="2019-04-13T14:51:48.329Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端跨域的理解和解决方案总结">
-<meta name="twitter:description" content="何为跨域？首先，我们得先理解一下何为跨域？所谓跨域，即网站的协议名 protocol（例如 http ://） 、域名 host （例如：www.example.com）、端口号 port (例如 80 ，默认端口可以省略) 这三个中的任意一个不同，网站之间的数据传输或者请求就属于跨域请求了。 这是由于浏览器的同源策略，为了防范跨站脚本的攻击，禁止客户端脚本对不同域的服务进行跨站调用，但是跨域并非">
+<meta name="twitter:title" content="HTTP协议">
+<meta name="twitter:description" content="HTTP的特性 HTTP协议是构建于TCP/IP协议之上的一个应用层协议，默认端口是80，HTTPS是443 HTTP是无连接无状态 永远都是客户端发起请求，服务器回送相应，所以无法实现在客户端没有发起请求的时候，服务器将消息推送给客户端；， 支持客户/服务器模式，支持基本认证和安全认证。 简单快速，请求服务时只需传送请求方法和路径，灵活，允许传输任意类型的数据对象。 HTTP0.9和1.0使用非">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://www.yanzery.cn/2018/10/20/前端跨域的理解和解决方案总结/">
+  <link rel="canonical" href="http://www.yanzery.cn/2019/04/13/HTTP协议/">
 
 
 
 
 
-  <title>前端跨域的理解和解决方案总结 | YanzeryZero</title>
+  <title>HTTP协议 | YanzeryZero</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yanzery.cn/2018/10/20/前端跨域的理解和解决方案总结/">
+    <link itemprop="mainEntityOfPage" href="http://www.yanzery.cn/2019/04/13/HTTP协议/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yanzery">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">前端跨域的理解和解决方案总结</h1>
+          <h1 class="post-title" itemprop="name headline">HTTP协议</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-20T00:44:53+08:00">
-                2018-10-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-13T22:51:02+08:00">
+                2019-04-13
               </time>
             
 
@@ -315,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/跨域/" itemprop="url" rel="index">
-                    <span itemprop="name">跨域</span>
+                  <a href="/categories/网络/" itemprop="url" rel="index">
+                    <span itemprop="name">网络</span>
                   </a>
                 </span>
 
@@ -332,7 +332,7 @@
 
           
           
-             <span id="/2018/10/20/前端跨域的理解和解决方案总结/" class="leancloud_visitors" data-flag-title="前端跨域的理解和解决方案总结">
+             <span id="/2019/04/13/HTTP协议/" class="leancloud_visitors" data-flag-title="HTTP协议">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -363,28 +363,101 @@
       
 
       
-        <h1 id="何为跨域？"><a href="#何为跨域？" class="headerlink" title="何为跨域？"></a>何为跨域？</h1><p>首先，我们得先理解一下何为<strong>跨域</strong>？所谓跨域，即网站的协议名 protocol（例如 http ://） 、域名 host （例如：<a href="http://www.example.com）、端口号" target="_blank" rel="noopener">www.example.com）、端口号</a> port (例如 80 ，默认端口可以省略) 这三个中的任意一个不同，网站之间的数据传输或者请求就属于跨域请求了。</p>
-<p>这是由于浏览器的同源策略，为了防范跨站脚本的攻击，禁止客户端脚本对不同域的服务进行跨站调用，但是跨域并非浏览器限制了发起跨站请求，而是跨站请求可以正常发起，但返回结果被浏览器拦截了。有些浏览器不允许从HTTPS协议的域 跨域访问 HTTP协议，比如Chrome和Firefox，这些浏览器在请求还未发出的时候就会拦截请求，这是一个特例。如果是非同源，共有三种行为受到限制：（1）cookie、LocalStorage 和 IndexDB 无法读取；（2）DOM 无法获得；（3）AJAX请求不能发送。<br><a id="more"></a><br>【这里再解释一下<a href="https://developer.mozilla.org/zh-CN/docs/Archive/Misc_top_level/Same-origin_policy_for_file:_URIs" target="_blank" rel="noopener">同源</a>（具体定义可以查看 MDN），如果两个页面的协议，端口（如果有指定）和域名都相同，则两个页面具有相同的源。IE 有例外，一是授信范围：两个相互之间高度互信的域名，不遵守同源策略的限制；二是端口：IE 未将端口号加入到同源策略的组成成分中。更多有关源的介绍可以查看 MDN ：<a href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy】" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy】</a></p>
-<h2 id="如何去解决？"><a href="#如何去解决？" class="headerlink" title="如何去解决？"></a>如何去解决？</h2><p> 接着，既然我们知道了何为跨域，跨越有时候在实际的开发中有时候又无法避免，下面介绍几种常见的跨域方法：</p>
-<h3 id="1、利用-JSONP-实现跨域"><a href="#1、利用-JSONP-实现跨域" class="headerlink" title="1、利用 JSONP 实现跨域"></a>1、利用 JSONP 实现跨域</h3><p><strong>JSONP</strong> （JSON with Padding）是 JSON 的一种“使用模式”。利用 JSON 实现跨域的原理是：HTML 的 script 标签是不受同源策略的限制的，可以通过 script 标签加载并执行其他的域的 js 文件的。</p>
-<p>例如通过 jQery 封装的方法可以很方便地进行 JSONP 的操作：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">  type: &apos;GET&apos;,</span><br><span class="line">  url: &apos;http://jjjjjjjj.com/data&apos;,</span><br><span class="line">  // 需要提交给服务端的数据:</span><br><span class="line">  data: &#123; name: &apos;燕子&apos; &#125;,</span><br><span class="line">  // 指定数据类型:</span><br><span class="line">  dataType: &apos;jsonp&apos;,</span><br><span class="line">  timeout: 300,</span><br><span class="line">  success: function(data)&#123;</span><br><span class="line">    this.append(data.project.html)</span><br><span class="line">  &#125;,</span><br><span class="line">  error: function(xhr, type)&#123;</span><br><span class="line">    alert(&apos;数据获取失败！&apos;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">//使用$.getJSON</span><br><span class="line">$.getJSON(&apos;http://jjjjjjjj.com/data?callback=?,function(data)&apos;)&#123;</span><br><span class="line">    //处理获得的json数据</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><p>JSONP 的兼容性好，在更古老的浏览器都可以运行，不需要 XMLHTTPRequest 或 ActiveX 的支持，并且在请求完毕后可以通过调用 callback 的方式回传结果；<br>然而缺点是，它只支持 GET 请求 而不支持 POST 等其他类型的 HTTP 请求；还有 只支持跨域 HTTP 请求这种情况，不能解决不同域的两个页面的之间 JavaScript 调用的问题； </p>
-<h3 id="2、利用-CORS-实现跨域"><a href="#2、利用-CORS-实现跨域" class="headerlink" title="2、利用 CORS 实现跨域"></a>2、利用 CORS 实现跨域</h3><p><strong>CORS</strong> （Cross-Origin Resource Sharing）跨域资源共享，定义了必须在访问跨域资源时，浏览器与服务器应该如何沟通。CORS 背后的思想是使用自定义的 HTTP 头部，让服务器能声明哪些来源可以通过浏览器访问该服务器上的资源，从而决定请求或响应是应该成功还是失败，CORS 本身并非绝对的安全，可利用 OAuth2 加强保障。（更多关于 CORS 的详解可以查看 阮一峰老师的一篇文章<a href="http://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="noopener">：跨域资源共享 CORS 详解</a>）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">header(&quot;Access-Control-Allow-Origin: *&quot;)       //“*”号表示允许任何域向我们的服务端提交请求</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">header(&quot;Access-Control-Allow-Origin: http://jjjjj.jd.com&quot;)      //也可以设置指定的域名</span><br></pre></td></tr></table></figure>
-<h4 id="与-JSONP-相比，CORS-更为先进、方便："><a href="#与-JSONP-相比，CORS-更为先进、方便：" class="headerlink" title="与 JSONP 相比，CORS 更为先进、方便："></a>与 JSONP 相比，CORS 更为先进、方便：</h4><ul>
-<li>CORS 支持所有类型的 HTTP 请求；</li>
-<li>使用CORS，开发者可以使用普通的XMLHttpRequest发起请求和获得数据，比起JSONP有更好的错误处理；</li>
-<li>绝大多数现代浏览器都已经支持了CORS；</li>
+        <h1 id="HTTP的特性"><a href="#HTTP的特性" class="headerlink" title="HTTP的特性"></a>HTTP的特性</h1><ul>
+<li>HTTP协议是构建于TCP/IP协议之上的一个应用层协议，默认端口是80，HTTPS是443</li>
+<li>HTTP是无连接无状态</li>
+<li>永远都是客户端发起请求，服务器回送相应，所以无法实现在客户端没有发起请求的时候，服务器将消息推送给客户端；，</li>
+<li>支持客户/服务器模式，支持基本认证和安全认证。</li>
+<li>简单快速，请求服务时只需传送请求方法和路径，灵活，允许传输任意类型的数据对象。</li>
+<li>HTTP0.9和1.0使用非持续连接，限制每次连接只能处理一个请求，服务器处理完客户的请求并收到客户的应答后就断开连接；HTTP1.1使用持续连接，不必为每一个Web对象创建一个新的连接，一个连接可以传输多个对象，采用这种方式可以节省传输时间。</li>
+<li>无状态：HTTP协议是无状态协议，对于事务处理没有记忆能力，缺少状态意味着后续处理前面信息需要重传，导致每次连接传送的数据量巨大。（因为服务器需要面对很多浏览器的并发访问，为了提高服务器对并发访问的处理能力。）</li>
 </ul>
-<h3 id="3、window-name"><a href="#3、window-name" class="headerlink" title="3、window.name"></a>3、window.name</h3><p>当window 的 loaction 变化时，页面重新加载，它的 name 属性可以依然保持不变。每个页面的对 window.name 都有读写权限，window.name 是持久存在一个窗口载入过所有页面中的。 我们可以在页面 A中用iframe加载其他域的页面B，而页面B中用JavaScript把需要传递的数据赋值给window.name，iframe加载完成之后（iframe.onload），页面A修改iframe的地址，将其变成同域的一个地址，然后就可以读出iframe的window.name的值了（因为A中的window.name和iframe中的window.name互相独立的，所以不能直接在A中获取window.name，而要通过iframe获取其window.name）。这个方式非常适合单向的数据请求，而且协议简单、安全。不会像JSONP那样不做限制地执行外部脚本。</p>
-<h3 id="4、document-domain-跨域（只适用于不同子域的框架间的交互）"><a href="#4、document-domain-跨域（只适用于不同子域的框架间的交互）" class="headerlink" title="4、document.domain 跨域（只适用于不同子域的框架间的交互）"></a>4、document.domain 跨域（只适用于不同子域的框架间的交互）</h3><p>同源策略不能用 ajax 方法去请求不同源的文档，还有一个限制就是浏览器不同域的框架之间不能进行 JS 的交互操作的，不同的框架可以获取 window 对象，但无法获取相应的属性和方法。</p>
-<p>这个时候，我们可以通过把两个页面的 document.domain 都设成相同的域名就可以，不过 window.domain 的设置也是有限制的，只能把 window.domain 设置成自身或更高一级的父域，且主域必须相同</p>
-<h3 id="5、HTML5-的-postMessage-方法"><a href="#5、HTML5-的-postMessage-方法" class="headerlink" title="5、HTML5 的 postMessage 方法"></a>5、HTML5 的 postMessage 方法</h3><p>高级浏览器Internet Explorer 8+, chrome，Firefox , Opera 和 Safari 都将支持这个功能。这个功能主要包括接受信息的”message”事件和发送消息的”postMessage”方法。</p>
-<p>window.postMessage() 方法被调用时，会在所有页面脚本执行完毕之后（例如：在该方法之后设置的事件、之前设置的timeout 事件）向目标窗口派发一个  MessageEvent 消息。 该 MessageEvent 消息有四个属性需要注意： message 属性表示该 message 的类型； data 属性为 window.postMessage 的第一个参数；origin 属性表示调用 window.postMessage()  方法时调用页面的当前状态； source 属性记录调用 window.postMessage() 方法的窗口信息。</p>
-<p>详细语法可参考 MDN 文档<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/postMessage" target="_blank" rel="noopener">：window.postMessage</a></p>
-
+<h2 id="HTTP之URL"><a href="#HTTP之URL" class="headerlink" title="HTTP之URL"></a>HTTP之URL</h2><p>HTTP使用统一资源标识符（URI）来传输数据和建立连接，URL是一种特殊类型的URI，包含用于查找某个资源的足够的信息。URL（统一资源定位符）地址；</p>
+<blockquote>
+<p><a href="http://www.aspxfans.com:8080/news/index.asp?boardID=5&amp;ID=24618&amp;page=1#name" target="_blank" rel="noopener">http://www.aspxfans.com:8080/news/index.asp?boardID=5&amp;ID=24618&amp;page=1#name</a></p>
+</blockquote>
+<ul>
+<li>协议：HTTP</li>
+<li>域名：<a href="http://www.aspxfans.com（也可以用IP地址）" target="_blank" rel="noopener">www.aspxfans.com（也可以用IP地址）</a></li>
+<li>端口部分：  “：”隔开，不是必需的，可以是默认</li>
+<li>虚拟目录：域名后的第一个/到最后一个</li>
+<li>文件名：域名后的最后一个/到？或者#为止，不是必需的</li>
+<li>锚：#开始到最后，不是必需</li>
+<li>参数？   # 之间的那部分</li>
+</ul>
+<h3 id="URL和URI的区别："><a href="#URL和URI的区别：" class="headerlink" title="URL和URI的区别："></a>URL和URI的区别：</h3><ol>
+<li>URI是统一资源标识符，用来唯一的标识一个资源（HTML、图像、视频….）。URI的组成为 访问资源的命名机制，存放资源的主机名，资源本身的名称，由路径表示并着重强调资源；</li>
+<li>URL是统一资源定位器，它是一种具体的URI，即URL可以用来标识一个资源，指明了如何locate这个资源；URL由协议，IP地址，主机资源的具体地址</li>
+</ol>
+<h2 id="HTTP的请求和响应"><a href="#HTTP的请求和响应" class="headerlink" title="HTTP的请求和响应"></a>HTTP的请求和响应</h2><h3 id="请求报文："><a href="#请求报文：" class="headerlink" title="请求报文："></a>请求报文：</h3><p>HTTP是以ASCII码传输的。HTTP的请求分为三个部分：请求行（request line）、请求头部（header）、空行和请求数据四个部分组成。</p>
+<ul>
+<li>请求行：请求方法，URL，HTTP协议版本号，</li>
+<li>请求头部：说明服务器要使用的一些附加信息</li>
+<li>请求数据：可以添加任意的其他数据</li>
+</ul>
+<h3 id="响应消息Response"><a href="#响应消息Response" class="headerlink" title="响应消息Response"></a>响应消息Response</h3><p>状态行、消息报头、空行和响应正文</p>
+<ul>
+<li>状态行：协议版本，状态码，状态消息</li>
+<li>消息报头：用来说明客户端要使用的一些附加信息</li>
+<li>空行</li>
+<li>相应正文，服务器返回给客户端的文本信息</li>
+</ul>
+<h2 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h2><ul>
+<li>1xx：指示信息–表示请求已经接收继续处理；</li>
+<li>2xx：成功–表示请求已被成功接收理解接受；</li>
+<li>3xx：重定向–要完成请求必须进行更进一步的操作；</li>
+<li>4xx：客户端错误–请求有语法错误或请求无法实现</li>
+<li>5xx：服务端错误–服务器未能实现合法的请求</li>
+</ul>
+<h3 id="常见的状态码"><a href="#常见的状态码" class="headerlink" title="常见的状态码"></a>常见的状态码</h3><ul>
+<li>200 表示请求被服务器正常处理</li>
+<li>204 表示请求已成功处理但是没有内容返回</li>
+<li>206 服务器已经完成了部分GET请求</li>
+<li>301 表示请求的资源永久地搬到了其他的位置</li>
+<li>302 表示请求的资源临时搬到了其他的位置</li>
+<li>303 表示请求资源存在另一个URI，应使用GET定向获取请求资源</li>
+<li>304 表示客户端发送附带条件的请求（GET方法中的if…）条件不满足</li>
+<li>400 请求报文存在语法错误或参数错误，服务器不理解</li>
+<li>401 发送的请求需要有HTTP认证信息或者是认证失败了</li>
+<li>403 对请求资源的访问被服务器拒绝了</li>
+<li>404 服务器找不到你请求的资源</li>
+<li>500 服务器请求出错</li>
+<li>503 服务器超负载或正停机维护无法处理请求</li>
+</ul>
+<h2 id="HTTP请求方法"><a href="#HTTP请求方法" class="headerlink" title="HTTP请求方法"></a>HTTP请求方法</h2><p>GET、POST、PUT、HEAD、DELET、OPTIONS</p>
+<h3 id="GET和POST的区别"><a href="#GET和POST的区别" class="headerlink" title="GET和POST的区别"></a>GET和POST的区别</h3><ol>
+<li>由于HTML标准对HTTP协议的用法的约定，POST数据是放body,GET数据是放在URL中。但是现代的web server都支持get包含body的请求。</li>
+<li>特定的浏览器（IE）对URL长度的限制是2083字节；理论上没有长度限制，其限制取决于操作系统的支持。URL太长对服务器处理事一种负担，处于安全稳定等方面的考虑，会给URL加长度限制，是对所有的HTTP，于get和post没关系；</li>
+<li>POST比GET安全；通过GET提交数据用户名和密码将明文出现在URL，因为登录页面可能被浏览器缓存。GET提交住居可能会造成Cross-site request forgery攻击。</li>
+<li>GET和POST最大的区别主要是GET请求是幂等性的，POST请求不是。这个是它们本质区别，上面的只是在使用上的区别。</li>
+</ol>
+<h2 id="持久连接"><a href="#持久连接" class="headerlink" title="持久连接"></a>持久连接</h2><p>HTTP协议采用“请求-应答”模式，当使用普通模式的时候，即请求一次就新建一个新连接，完成后就断开连接（无连接的协议）；当使用Keep-Alive模式的时候，Keep-Alive功能使客户端到服务端的连接持续有效，当出现对服务器有后继请求的时候，就可以避免建立或者重新建立连接。</p>
+<p>在HTTP请求头中添加一个字段Connection: Keep-Alive，当服务器收到附带有 Connection: Keep-Alive 的请求时，它也会在响应头中添加一个同样的字段来使用 Keep-Alive 。这样一来，客户端和服务器之间的HTTP连接就会被保持，不会断开（超过 Keep-Alive 规定的时间，意外断电等情况除外），当客户端发送另外一个请求时，就使用这条已经建立的连接。</p>
+<ul>
+<li>HTTP Keep-Alive 简单说就是保持当前的TCP连接，避免了重新建立连接。</li>
+<li>HTTP 长连接不可能一直保持，例如 Keep-Alive: timeout=5, max=100，表示这个TCP通道可以保持5秒，max=100，表示这个长连接最多接收100次请求就断开。</li>
+<li>HTTP 是一个无状态协议，这意味着每个请求都是独立的，Keep-Alive 没能改变这个结果。另外，Keep-Alive也不能保证客户端和服务器之间的连接一定是活跃的，在 HTTP1.1 版本中也如此。唯一能保证的就是当连接被关闭时你能得到一个通知，所以不应该让程序依赖于 Keep-Alive 的保持连接特性，否则会有意想不到的后果。</li>
+</ul>
+<h2 id="HTTP-管线化"><a href="#HTTP-管线化" class="headerlink" title="HTTP 管线化"></a>HTTP 管线化</h2><p>默认情况下 HTTP 协议中每个传输层连接只能承载一个 HTTP 请求和响应，浏览器会在收到上一个请求的响应之后，再发送下一个请求。在使用持久连接的情况下，某个连接上消息的传递类似于请求1 -&gt; 响应1 -&gt; 请求2 -&gt; 响应2 -&gt; 请求3 -&gt; 响应3。</p>
+<p>HTTP Pipelining（管线化）是将多个 HTTP 请求整批提交的技术，在传送过程中不需等待服务端的回应。使用 HTTP Pipelining 技术之后，某个连接上的消息变成了类似这样请求1 -&gt; 请求2 -&gt; 请求3 -&gt; 响应1 -&gt; 响应2 -&gt; 响应3。</p>
+<h2 id="会话跟踪"><a href="#会话跟踪" class="headerlink" title="会话跟踪"></a>会话跟踪</h2><blockquote>
+<p>什么是会话？</p>
+</blockquote>
+<p>客户端打开与服务器的连接发出请求到服务器响应客户端请求的全过程称之为会话。</p>
+<blockquote>
+<p>什么是会话跟踪？</p>
+</blockquote>
+<p>会话跟踪指的是对同一个用户对服务器的连续的请求和接受响应的监视。</p>
+<blockquote>
+<p>会话跟踪常用的方法:</p>
+</blockquote>
+<ol>
+<li>URL 重写</li>
+<li>隐藏表单域</li>
+<li>Cookie</li>
+<li>Session</li>
+</ol>
+<h2 id="HTTPS的工作原理"><a href="#HTTPS的工作原理" class="headerlink" title="HTTPS的工作原理"></a>HTTPS的工作原理</h2>
       
     </div>
     
@@ -401,9 +474,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/前端/" rel="tag"># 前端</a>
-          
-            <a href="/tags/跨域/" rel="tag"># 跨域</a>
+            <a href="/tags/网络/" rel="tag"># 网络</a>
           
         </div>
       
@@ -416,8 +487,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/19/《谁动了我的奶酪》/" rel="next" title="《谁动了我的奶酪》">
-                <i class="fa fa-chevron-left"></i> 《谁动了我的奶酪》
+              <a href="/2019/04/13/TCP协议/" rel="next" title="TCP协议">
+                <i class="fa fa-chevron-left"></i> TCP协议
               </a>
             
           </div>
@@ -425,10 +496,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/21/关于JavaScript中函数的总结/" rel="prev" title="关于JavaScript中函数的总结">
-                关于JavaScript中函数的总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -562,7 +629,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#何为跨域？"><span class="nav-number">1.</span> <span class="nav-text">何为跨域？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何去解决？"><span class="nav-number">1.1.</span> <span class="nav-text">如何去解决？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、利用-JSONP-实现跨域"><span class="nav-number">1.1.1.</span> <span class="nav-text">1、利用 JSONP 实现跨域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#总结："><span class="nav-number">1.1.1.1.</span> <span class="nav-text">总结：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、利用-CORS-实现跨域"><span class="nav-number">1.1.2.</span> <span class="nav-text">2、利用 CORS 实现跨域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#与-JSONP-相比，CORS-更为先进、方便："><span class="nav-number">1.1.2.1.</span> <span class="nav-text">与 JSONP 相比，CORS 更为先进、方便：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、window-name"><span class="nav-number">1.1.3.</span> <span class="nav-text">3、window.name</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、document-domain-跨域（只适用于不同子域的框架间的交互）"><span class="nav-number">1.1.4.</span> <span class="nav-text">4、document.domain 跨域（只适用于不同子域的框架间的交互）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、HTML5-的-postMessage-方法"><span class="nav-number">1.1.5.</span> <span class="nav-text">5、HTML5 的 postMessage 方法</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP的特性"><span class="nav-number">1.</span> <span class="nav-text">HTTP的特性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP之URL"><span class="nav-number">1.1.</span> <span class="nav-text">HTTP之URL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#URL和URI的区别："><span class="nav-number">1.1.1.</span> <span class="nav-text">URL和URI的区别：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP的请求和响应"><span class="nav-number">1.2.</span> <span class="nav-text">HTTP的请求和响应</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#请求报文："><span class="nav-number">1.2.1.</span> <span class="nav-text">请求报文：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应消息Response"><span class="nav-number">1.2.2.</span> <span class="nav-text">响应消息Response</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP状态码"><span class="nav-number">1.3.</span> <span class="nav-text">HTTP状态码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的状态码"><span class="nav-number">1.3.1.</span> <span class="nav-text">常见的状态码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP请求方法"><span class="nav-number">1.4.</span> <span class="nav-text">HTTP请求方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GET和POST的区别"><span class="nav-number">1.4.1.</span> <span class="nav-text">GET和POST的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#持久连接"><span class="nav-number">1.5.</span> <span class="nav-text">持久连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-管线化"><span class="nav-number">1.6.</span> <span class="nav-text">HTTP 管线化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#会话跟踪"><span class="nav-number">1.7.</span> <span class="nav-text">会话跟踪</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTPS的工作原理"><span class="nav-number">1.8.</span> <span class="nav-text">HTTPS的工作原理</span></a></li></ol></li></ol></div>
             
 
           </div>

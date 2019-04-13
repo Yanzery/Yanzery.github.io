@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="网络,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="记录技术、记录生活、记录小美好">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://www.yanzery.cn/categories/index.html">
+<meta name="description" content="TCP的特性 TCP提供的是一种面向链接的、可靠的字节流服务； 只能用于广播和多播； 使用校验和，确认重传机制来保证传输数据的可靠性 把数据分节进行排序，保证数据的顺序不变和非重复； 使用滑动窗口机制来实现流量控制，通过动态改变窗口的大小来进行拥塞控制； 但是TCP不能保证数据一定会被对方接收到，但是她能提供数据的可靠递送和保障的可靠通知。 基于TCP的应用层协议还有HTTP，SMTP，FTP，T">
+<meta name="keywords" content="网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TCP协议">
+<meta property="og:url" content="http://www.yanzery.cn/2019/04/13/TCP协议/index.html">
 <meta property="og:site_name" content="YanzeryZero">
-<meta property="og:description" content="记录技术、记录生活、记录小美好">
+<meta property="og:description" content="TCP的特性 TCP提供的是一种面向链接的、可靠的字节流服务； 只能用于广播和多播； 使用校验和，确认重传机制来保证传输数据的可靠性 把数据分节进行排序，保证数据的顺序不变和非重复； 使用滑动窗口机制来实现流量控制，通过动态改变窗口的大小来进行拥塞控制； 但是TCP不能保证数据一定会被对方接收到，但是她能提供数据的可靠递送和保障的可靠通知。 基于TCP的应用层协议还有HTTP，SMTP，FTP，T">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-02T18:02:30.386Z">
+<meta property="og:updated_time" content="2019-04-13T14:51:32.737Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="记录技术、记录生活、记录小美好">
+<meta name="twitter:title" content="TCP协议">
+<meta name="twitter:description" content="TCP的特性 TCP提供的是一种面向链接的、可靠的字节流服务； 只能用于广播和多播； 使用校验和，确认重传机制来保证传输数据的可靠性 把数据分节进行排序，保证数据的顺序不变和非重复； 使用滑动窗口机制来实现流量控制，通过动态改变窗口的大小来进行拥塞控制； 但是TCP不能保证数据一定会被对方接收到，但是她能提供数据的可靠递送和保障的可靠通知。 基于TCP的应用层协议还有HTTP，SMTP，FTP，T">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://www.yanzery.cn/categories/">
+  <link rel="canonical" href="http://www.yanzery.cn/2019/04/13/TCP协议/">
 
 
 
 
 
-  <title>categories | YanzeryZero</title>
+  <title>TCP协议 | YanzeryZero</title>
   
 
 
@@ -250,40 +251,203 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.yanzery.cn/2019/04/13/TCP协议/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yanzery">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/22.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YanzeryZero">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 7 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CSS/">CSS</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/ES6/">ES6</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript基础/">JavaScript基础</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/小记录/">小记录</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网络/">网络</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/跨域/">跨域</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">TCP协议</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-13T22:47:07+08:00">
+                2019-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络/" itemprop="url" rel="index">
+                    <span itemprop="name">网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/04/13/TCP协议/" class="leancloud_visitors" data-flag-title="TCP协议">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h1 id="TCP的特性"><a href="#TCP的特性" class="headerlink" title="TCP的特性"></a>TCP的特性</h1><ul>
+<li>TCP提供的是一种面向链接的、可靠的字节流服务；</li>
+<li>只能用于广播和多播；</li>
+<li>使用校验和，确认重传机制来保证传输数据的可靠性</li>
+<li>把数据分节进行排序，保证数据的顺序不变和非重复；</li>
+<li>使用滑动窗口机制来实现流量控制，通过动态改变窗口的大小来进行拥塞控制；</li>
+<li>但是TCP不能保证数据一定会被对方接收到，但是她能提供数据的可靠递送和保障的可靠通知。</li>
+<li>基于TCP的应用层协议还有HTTP，SMTP，FTP，Telnet和POP3<a id="more"></a>
+<h2 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h2>所谓三次握手，就是指在建立一个TCP连接时，需要客户端和服务器总共发送3个包；目的是连接服务器的指定端口，建立TCP连接，并同步连接双方的序列号和确认号，交换TCP窗口大小信息。</li>
+<li>第一次握手（SYN=1；seq=x）：客户端发送一个TCP的SYN标志位置1的包，指明客户端打算连接的服务器的端口，初始序号X保存在包头的序列号字段里；（SYN_send）</li>
+<li>第二次握手（SYN=1；ACK=1；seq=y，ack=x+1）：服务器发回确认包（ACK）应答，即SYN和ACK都为1；服务器选择自己的ISN序列号放到Saq域里，同时将确认序号设置为客户的ISN+1，发送完毕后进入SYN_RCVD状态；</li>
+<li>第三次握手（ACK=1，ack=y+1）：客户端再次发送确认包（ACK），SYN标志位为0；ACK为1，把服务器发来的ACK序号字段+1放在确定字段中发送给对方，并且在数据段放写ISN的+1；</li>
+</ul>
+<h3 id="为什么要进行三次握手"><a href="#为什么要进行三次握手" class="headerlink" title="为什么要进行三次握手"></a>为什么要进行三次握手</h3><ul>
+<li>首先3次握手完成了两个重要的功能，双方做好发送数据的准备工作，和允许双方就初始序列号进行协商，这个序列号在握手过程中被发送和确认；</li>
+<li>那么如果改成两次握手，死锁是可能发生的，例如在计算机C和S的通信中，C给S发送一个连接请求，S收到了请求并发送确认应答分组，如果是两次握手协议的话，那么S就会认为已经成功建立连接了可以开始发送数据分组了，、。可是，如果S的应答分组在传输中被丢失的情况下，C就不知道S是否准备好，会认为连接还没建立成功，会忽略S发来的任何数据分组，只等待连接确认应答分组，而S在发出的分组超时后会重复发生同样的分组，这样就形成了死锁。</li>
+</ul>
+<h2 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h2><ul>
+<li>第一次挥手（FIN=1，seq=x）：假如客户端想要关闭连接，就会发送一个FIN标志位置为1的包，表示自己没有数据可以发送但是可以接受数据；FIN_WAIT_1</li>
+<li>第二次挥手（FIN=1，ack=x+1）：服务器确认客户端的FIN包，并发送一个确认包，表明自己接受了客户端的关闭请求连接但还没准备好关闭连接。发送完毕后，服务器就进入CLOSE_WAIT,  而客户端接收到这个确认包后就进入 FIN_WAIT_2状态，等待服务器关闭连接。</li>
+<li>第三次挥手（FIN=1，Seq=y）：服务器准备好关闭连接时，向客户端发送结束连接请求，FIN置为1，发送完毕后，服务端就进入LAST_ACk状态，等待客户端的最后一个ACK；</li>
+<li>第四次挥手（ACk=1，ack=y+1）：客户端接收到来自服务器的关闭请求，发送一个确认包，并进入TIME_WAIT 状态，等待可能出现的要求重传的ACK包；服务器接到这个确认包后就关闭连接进入CLOSED状态。客户端等待某个固定的时间段（两个最大段生命周期）之后没有收到服务器的ACK，就认为服务器已经正常关闭连接，于是自己也关闭进入CLOSED状态。</li>
+</ul>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/网络/" rel="tag"># 网络</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/05/先生与夫人/" rel="next" title="先生与夫人">
+                <i class="fa fa-chevron-left"></i> 先生与夫人
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/13/HTTP协议/" rel="prev" title="HTTP协议">
+                HTTP协议 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -316,8 +480,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -379,6 +552,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TCP的特性"><span class="nav-number">1.</span> <span class="nav-text">TCP的特性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#三次握手"><span class="nav-number">1.1.</span> <span class="nav-text">三次握手</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要进行三次握手"><span class="nav-number">1.1.1.</span> <span class="nav-text">为什么要进行三次握手</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四次挥手"><span class="nav-number">1.2.</span> <span class="nav-text">四次挥手</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
