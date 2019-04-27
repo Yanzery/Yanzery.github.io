@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="前端,JavaScript基础,">
+  <meta name="keywords" content="小记录,">
 
 
 
@@ -79,22 +79,25 @@
 
 
 
-<meta name="description" content="一、何为作用域？ 如我们所知的，JavaScript 的函数是一个对象，那么既然是一个对象，就会有属性，然而对象中有一些属性我们可以访问有一些却是我们访问不了的，访问不了的那些是JavaScript引擎存取的，那么我们的作用域[[scope]]就是其中一个。作用域[[scope]]存储了运行期上下文的集合。">
-<meta name="keywords" content="前端,JavaScript基础">
+<meta name="description" content="四月关键词煎熬、累、幸福、矛盾 小总结？其实倒是想不太起来一些非常印象深刻的事情了，可能还是缺少记录。我觉得适当地记录一些自己新路历程，一些想法还是挺好的。希望自己以后能够坚持着记录这个习惯。 正式总结 翻了四月份的朋友圈，好像留下爱的并不多，那就说一下一些比较值得说的事情吧。还有，依旧感谢身边的小伙伴海涛师兄志强师兄洁鹏安琪。。。加油啊大家！  在一起首先，四月份，锐锐终于回学校了，我们终于结束">
+<meta name="keywords" content="小记录">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript基础（二）作用域">
-<meta property="og:url" content="http://www.yanzery.cn/2019/01/14/JavaScript基础（二）作用域/index.html">
+<meta property="og:title" content="四月小总结">
+<meta property="og:url" content="http://www.yanzery.cn/2019/04/27/四月小总结/index.html">
 <meta property="og:site_name" content="YanzeryZero">
-<meta property="og:description" content="一、何为作用域？ 如我们所知的，JavaScript 的函数是一个对象，那么既然是一个对象，就会有属性，然而对象中有一些属性我们可以访问有一些却是我们访问不了的，访问不了的那些是JavaScript引擎存取的，那么我们的作用域[[scope]]就是其中一个。作用域[[scope]]存储了运行期上下文的集合。">
+<meta property="og:description" content="四月关键词煎熬、累、幸福、矛盾 小总结？其实倒是想不太起来一些非常印象深刻的事情了，可能还是缺少记录。我觉得适当地记录一些自己新路历程，一些想法还是挺好的。希望自己以后能够坚持着记录这个习惯。 正式总结 翻了四月份的朋友圈，好像留下爱的并不多，那就说一下一些比较值得说的事情吧。还有，依旧感谢身边的小伙伴海涛师兄志强师兄洁鹏安琪。。。加油啊大家！  在一起首先，四月份，锐锐终于回学校了，我们终于结束">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.yanzery.cn/2019/01/14/JavaScript基础（二）作用域/1.jpg">
-<meta property="og:image" content="http://www.yanzery.cn/2019/01/14/JavaScript基础（二）作用域/2.jpg">
-<meta property="og:image" content="http://www.yanzery.cn/2019/01/14/JavaScript基础（二）作用域/3.jpg">
-<meta property="og:updated_time" content="2019-03-02T18:02:30.371Z">
+<meta property="og:image" content="http://www.yanzery.cn/2019/04/27/四月小总结/our.jpg">
+<meta property="og:image" content="http://www.yanzery.cn/2019/04/27/四月小总结/绝望.png">
+<meta property="og:image" content="http://www.yanzery.cn/2019/04/27/四月小总结/开始.png">
+<meta property="og:image" content="http://www.yanzery.cn/2019/04/27/四月小总结/夕阳.jpg">
+<meta property="og:image" content="http://www.yanzery.cn/2019/04/27/四月小总结/加油.jpg">
+<meta property="og:image" content="http://www.yanzery.cn/2019/04/27/四月小总结/傻子.jpg">
+<meta property="og:updated_time" content="2019-04-27T14:27:24.143Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript基础（二）作用域">
-<meta name="twitter:description" content="一、何为作用域？ 如我们所知的，JavaScript 的函数是一个对象，那么既然是一个对象，就会有属性，然而对象中有一些属性我们可以访问有一些却是我们访问不了的，访问不了的那些是JavaScript引擎存取的，那么我们的作用域[[scope]]就是其中一个。作用域[[scope]]存储了运行期上下文的集合。">
-<meta name="twitter:image" content="http://www.yanzery.cn/2019/01/14/JavaScript基础（二）作用域/1.jpg">
+<meta name="twitter:title" content="四月小总结">
+<meta name="twitter:description" content="四月关键词煎熬、累、幸福、矛盾 小总结？其实倒是想不太起来一些非常印象深刻的事情了，可能还是缺少记录。我觉得适当地记录一些自己新路历程，一些想法还是挺好的。希望自己以后能够坚持着记录这个习惯。 正式总结 翻了四月份的朋友圈，好像留下爱的并不多，那就说一下一些比较值得说的事情吧。还有，依旧感谢身边的小伙伴海涛师兄志强师兄洁鹏安琪。。。加油啊大家！  在一起首先，四月份，锐锐终于回学校了，我们终于结束">
+<meta name="twitter:image" content="http://www.yanzery.cn/2019/04/27/四月小总结/our.jpg">
 
 
 
@@ -124,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://www.yanzery.cn/2019/01/14/JavaScript基础（二）作用域/">
+  <link rel="canonical" href="http://www.yanzery.cn/2019/04/27/四月小总结/">
 
 
 
 
 
-  <title>JavaScript基础（二）作用域 | YanzeryZero</title>
+  <title>四月小总结 | YanzeryZero</title>
   
 
 
@@ -267,7 +270,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yanzery.cn/2019/01/14/JavaScript基础（二）作用域/">
+    <link itemprop="mainEntityOfPage" href="http://www.yanzery.cn/2019/04/27/四月小总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yanzery">
@@ -284,7 +287,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JavaScript基础（二）作用域</h1>
+          <h1 class="post-title" itemprop="name headline">四月小总结</h1>
         
 
         <div class="post-meta">
@@ -296,8 +299,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-14T21:37:43+08:00">
-                2019-01-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-27T20:21:00+08:00">
+                2019-04-27
               </time>
             
 
@@ -307,28 +310,6 @@
           </span>
 
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript基础/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -336,7 +317,7 @@
 
           
           
-             <span id="/2019/01/14/JavaScript基础（二）作用域/" class="leancloud_visitors" data-flag-title="JavaScript基础（二）作用域">
+             <span id="/2019/04/27/四月小总结/" class="leancloud_visitors" data-flag-title="四月小总结">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -367,26 +348,33 @@
       
 
       
-        <h2 id="一、何为作用域？"><a href="#一、何为作用域？" class="headerlink" title="一、何为作用域？"></a>一、何为作用域？</h2><ul>
-<li>如我们所知的，JavaScript 的函数是一个对象，那么既然是一个对象，就会有属性，然而对象中有一些属性我们可以访问有一些却是我们访问不了的，访问不了的那些是JavaScript引擎存取的，那么我们的作用域[[scope]]就是其中一个。作用域[[scope]]存储了运行期上下文的集合。<a id="more"></a></li>
-<li>那么问题又来了，执行期上下文又是什么呢，就是当函数执行时，会创建一个称为执行期上下文的内部对象，一个执行上下文定义了一个函数执行时的环境，函数每次执行时对应的执行上下文是独一无二的，并且当函数执行结束时，它所产生的执行期上下文会被销毁。</li>
-<li>接着说到作用域，那也要说一下<strong>作用域链</strong>，作用域[[scope]]中存储的执行期上下文对象的集合呈链式链接，所以叫作用域链。</li>
-<li>那么我们查找变量就是从函数作用域链的顶端依次向下查找<h2 id="二、结合例子讲解"><a href="#二、结合例子讲解" class="headerlink" title="二、结合例子讲解"></a>二、结合例子讲解</h2></li>
+        <h1 id="四月"><a href="#四月" class="headerlink" title="四月"></a>四月</h1><h2 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h2><p>煎熬、累、幸福、矛盾</p>
+<h2 id="小总结？"><a href="#小总结？" class="headerlink" title="小总结？"></a>小总结？</h2><p>其实倒是想不太起来一些非常印象深刻的事情了，可能还是缺少记录。我觉得适当地记录一些自己新路历程，一些想法还是挺好的。希望自己以后能够坚持着记录这个习惯。</p>
+<h3 id="正式总结"><a href="#正式总结" class="headerlink" title="正式总结"></a>正式总结</h3><blockquote>
+<p>翻了四月份的朋友圈，好像留下爱的并不多，那就说一下一些比较值得说的事情吧。还有，依旧感谢身边的小伙伴海涛师兄志强师兄洁鹏安琪。。。加油啊大家！</p>
+</blockquote>
+<h3 id="在一起"><a href="#在一起" class="headerlink" title="在一起"></a>在一起</h3><p>首先，四月份，锐锐终于回学校了，我们终于结束了异地，终于了可以短暂地在一起了。这也是我一件我觉得很开心的事情了。就是那种我们不需要腻在一起，但是有在我身边就会觉得踏实的感觉，会很珍惜吧，觉得幸福。而且蛮多时候陪我在工一，我复习，他写毕设处理事情，其实呆在一起的时间就是一起去饭堂吃饭和晚上一起回宿舍的时间，还是我们一如既往地风格，平平淡淡，但是感觉还好，至少呆在一起的时候我们是开心。在这个阶段，确实我不应该放松下来，记得三月中旬的时候锐锐中途回来学校一次可以有一天陪着我不过他还是选择在咖啡厅陪我学习。怎么说呢，挺多人会觉得我们的恋爱过于平淡，主要是少了那种情侣的那种甜。作为当局者，我感受到的可能是另一种风格，就是会去实际做一些对对方好的事情，例如我需要面试的时候陪我去面试，我需要学习的时候陪我学习，很多时候还是能够感受得到的。也可以说是另一种甜吧，例如情人节的时候，他说“你找到理想的offer就是最好的礼物”，毕业的时候“你就是毕业礼物了”，给我送饮料的时候也给我身边的同学带吃的人我跟他们联络联络感情，后知后觉也发现这也是一种甜吧。蛮多细节还是挺感动的吧，感恩。<br><img src="/2019/04/27/四月小总结/our.jpg"></p>
+<h3 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h3><p>这个月的主旋律就是面试笔试面试笔试…从一开始面试的时候各种紧张（虽然现在也是紧张）到现在笔试面试都有点麻木了的感觉。emmm但是其实结果并没有好。准备的比较晚，确实是没办法。哎呀，其实中间还是情绪奔溃过几次的，就有点难受然后就忍不住就眼泪刷刷流下来了。呀看朋友圈记录了一下：</p>
+<ul>
+<li><p>4月8号的时候，跟锐锐晚上回去的时候就不知道说起什么了吧，然后挺难过的看不到希望，最后走进西六的时候说了一句“我不想面试了”呜呜呜，然后一回头眼泪就刷刷地忍不住往下掉，走到天台，因为泪水模糊了眼睛，用手机拍下了还没对焦的时候的景象。挺美的吧。当时发了四张图片，每一张图片都是越来越模糊，没有配文。当时就想好累，我好想放弃了，放弃多容易，我就不用折腾了，然后哭完擦干眼泪就下去洗澡了，想想还是应该继续好好学习，放弃太没意思了。</p>
+<img src="/2019/04/27/四月小总结/绝望.png">
+</li>
+<li><p>4月10号的时候，终于开始面试了，早上面了商汤，下午面了头条，晚上笔试了腾讯了。这一天的结果都不是很好。不过就一天下来的感觉就是挺累的，还有就是还是懵懵懂懂没怎么找到面试的感觉。也是意料之中吧，万事开头难。</p>
+<img src="/2019/04/27/四月小总结/开始.png"></li>
+<li>后面陆陆续续做了微众的笔试，阿里的笔试，面了CVTE一面，起起落落的CVTE二面。。。这期间吧，就是起起落落的感觉，然后患得患失，又像打不死的小强，被腾讯捞起来，被阿里捞起来。<img src="/2019/04/27/四月小总结/夕阳.jpg"></li>
+<li>19号接到腾讯电话，20号开始面腾讯一面；22号早上变为复试，22号下午接到电话，23号上午面了腾讯二面，并且当天更新了时间但是没有改变状态；就这样焦急地了几天后，终于在26号晚变了状态，但是emmm并不是HR面，是GM面，就还是特别忐忑吧，还有一轮技术面，就很悬很害怕挂了。但是能走到这么远其实还是觉得应该是挺幸运的吧，其实能一直保持下去！不管怎么样不骄不躁继续加油吧！<img src="/2019/04/27/四月小总结/加油.jpg">
+</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> aa = <span class="number">2</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> aa = <span class="number">3</span>;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">c</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        c();</span><br><span class="line">    &#125;</span><br><span class="line">    b();</span><br><span class="line">    <span class="built_in">console</span>.log(aa);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">a();</span><br></pre></td></tr></table></figure>
-<ol>
-<li><p>首先 a函数被 defined，所以自然就产生了它的属性[[scope]],[[scope]]里面存的是作用域链，作用域链自然就是对象的集合，所以此时a在被定义时的作用域链就是此时的所处的执行期上下文，那么这个环境就是全局对象，因此我们的作用域链中仅有一位[0]位– global object（下面简称GO）【因为函数a刚在全局中被定义，那它的执行期上下文自然只有一个全局的对象】具体可看图一：<img src="/2019/01/14/JavaScript基础（二）作用域/1.jpg"></p>
+<h3 id="远方"><a href="#远方" class="headerlink" title="远方"></a>远方</h3><p>过去的接近一个月，其实最大的问题可能还是心态方面不够好，还有在时间分配方面效率不是很好。希望自己在接下来一个月中能完成一些些小目标，每天都在超越自己，刷新自己</p>
+<ul>
+<li>好好耕耘博客，每天积累一点点（算法、基础、框架）</li>
+<li>希望自己在动手方面多一点操作。</li>
+<li>记录一些计划和一些想法。</li>
+<li><p>高效一点点。</p>
+<p>最后附上一张傻子照片，希望能早日上岸承诺大家做的那个测评！五月加油~</p>
+<img src="/2019/04/27/四月小总结/傻子.jpg">
 </li>
-<li><p>接着就是a函数执行，a函数执行，一个函数执行必然产生一个函数独一无二的执行期上下文即产生属于a的AO（acitive object），那么这个AO就是放在作用域链的最顶端（任何环境的作用域链的最顶端一定是该环境下的AO）。所以把AO放在顶端【0】位，那么原来的在第一位的GO就放在第二位，作用域链如图二所示：</p>
-</li>
-<li><p>在a函数执行的中，b被定义，因此b的作用域就是此时所处的环境的执行上下文，即函数a的作用域链，即图二所示；<img src="/2019/01/14/JavaScript基础（二）作用域/2.jpg"></p>
-</li>
-<li>接着b执行，产生自己的执行期上下文，b的AO放在作用域的最顶端，所以此刻b的作用域链即首位[0]–b的AO+b被定义时所处的环境，如图三所示：<img src="/2019/01/14/JavaScript基础（二）作用域/3.jpg"></li>
-<li>再接着c被定义(同理)，c被执行（也同理）</li>
-<li>最后打印出来的aa的值为3；因为b函数执行的作用域链中a的AO跟原本a函数执行的AO是同一个；</li>
-<li>当函数执行结束时，其执行期上下文会被立即销毁，例如b执行完后，那么b的AO会被销毁，但由于a函数还没执行结束，所以a的AO还继续存在。</li>
-<li>当再次调用函数a时，将产生新的作用域链，与之前的是否调用执行没有关系。</li>
-</ol>
+</ul>
 
       
     </div>
@@ -404,9 +392,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/前端/" rel="tag"># 前端</a>
-          
-            <a href="/tags/JavaScript基础/" rel="tag"># JavaScript基础</a>
+            <a href="/tags/小记录/" rel="tag"># 小记录</a>
           
         </div>
       
@@ -419,8 +405,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/13/JavaScript基础（一）预编译/" rel="next" title="JavaScript基础（一）预编译">
-                <i class="fa fa-chevron-left"></i> JavaScript基础（一）预编译
+              <a href="/2019/04/25/阿里-2020届暑假-一面/" rel="next" title="阿里(2020届暑假)一面">
+                <i class="fa fa-chevron-left"></i> 阿里(2020届暑假)一面
               </a>
             
           </div>
@@ -428,10 +414,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/16/JavaScript基础（三）闭包/" rel="prev" title="JavaScript基础（三）闭包">
-                JavaScript基础（三）闭包 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -565,7 +547,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、何为作用域？"><span class="nav-number">1.</span> <span class="nav-text">一、何为作用域？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、结合例子讲解"><span class="nav-number">2.</span> <span class="nav-text">二、结合例子讲解</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#四月"><span class="nav-number">1.</span> <span class="nav-text">四月</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关键词"><span class="nav-number">1.1.</span> <span class="nav-text">关键词</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小总结？"><span class="nav-number">1.2.</span> <span class="nav-text">小总结？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#正式总结"><span class="nav-number">1.2.1.</span> <span class="nav-text">正式总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在一起"><span class="nav-number">1.2.2.</span> <span class="nav-text">在一起</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面试"><span class="nav-number">1.2.3.</span> <span class="nav-text">面试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远方"><span class="nav-number">1.2.4.</span> <span class="nav-text">远方</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
