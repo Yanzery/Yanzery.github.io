@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/22.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/22.jpg?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="算法,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Leetcode之反转 好了，从简单的开始嘛，那就从各种字符串的反转开始扒，反转呀反转转呀转呀爱的魔力转圈圈">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="”leetcode(1)-各种反转">
+<meta property="og:url" content="http://www.yanzery.cn/2019/05/07/”leetcode-1-各种反转/index.html">
+<meta property="og:site_name" content="YanzeryZero">
+<meta property="og:description" content="Leetcode之反转 好了，从简单的开始嘛，那就从各种字符串的反转开始扒，反转呀反转转呀转呀爱的魔力转圈圈">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.yanzery.cn/2019/05/07/”leetcode-1-各种反转/1反转字符串.jpg">
+<meta property="og:image" content="http://www.yanzery.cn/2019/05/07/”leetcode-1-各种反转/2反转字符串中的单词III.jpg">
+<meta property="og:image" content="http://www.yanzery.cn/2019/05/07/”leetcode-1-各种反转/7整数反转.jpg">
+<meta property="og:image" content="http://www.yanzery.cn/2019/05/07/”leetcode-1-各种反转/4反转链表.jpg">
+<meta property="og:updated_time" content="2019-05-07T14:15:03.237Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="”leetcode(1)-各种反转">
+<meta name="twitter:description" content="Leetcode之反转 好了，从简单的开始嘛，那就从各种字符串的反转开始扒，反转呀反转转呀转呀爱的魔力转圈圈">
+<meta name="twitter:image" content="http://www.yanzery.cn/2019/05/07/”leetcode-1-各种反转/1反转字符串.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '燕子'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.yanzery.cn/2019/05/07/”leetcode-1-各种反转/">
+
+
+
+
+
+  <title>”leetcode(1)-各种反转 | YanzeryZero</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YanzeryZero</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            目录
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.yanzery.cn/2019/05/07/”leetcode-1-各种反转/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yanzery">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/22.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YanzeryZero">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">”leetcode(1)-各种反转</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-07T21:10:08+08:00">
+                2019-05-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法打卡/" itemprop="url" rel="index">
+                    <span itemprop="name">算法打卡</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/05/07/”leetcode-1-各种反转/" class="leancloud_visitors" data-flag-title="”leetcode(1)-各种反转">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Leetcode之反转"><a href="#Leetcode之反转" class="headerlink" title="Leetcode之反转"></a>Leetcode之反转</h1><blockquote>
+<p>好了，从简单的开始嘛，那就从各种字符串的反转开始扒，反转呀反转转呀转呀爱的魔力转圈圈</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="第一道题-344-反转字符串"><a href="#第一道题-344-反转字符串" class="headerlink" title="第一道题[344. 反转字符串]"></a>第一道题[344. 反转字符串]</h2><h3 id="原题描述如下："><a href="#原题描述如下：" class="headerlink" title="原题描述如下："></a>原题描述如下：</h3><img src="/2019/05/07/”leetcode-1-各种反转/1反转字符串.jpg">
+<h3 id="思路如下："><a href="#思路如下：" class="headerlink" title="思路如下："></a>思路如下：</h3><ol>
+<li>一开始最直接的想法就是直接 <figure class="highlight plain"><figcaption><span>s.reverse();``哈哈哈然而如果面试的时候是不可能这样滴；</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">2. 分析一下题目的关键字眼“原地修改输入数组”，不能申请额外的空间，只能在原数组上操作</span><br><span class="line">3. 接着题目的要求是反转，简单理解就是调个头，那么就是1跟n调换，2跟n-1调换...</span><br><span class="line">4. 就其实很容易想起递归，不断地把“第一个”元素跟“最后一个”元素进行交换，递归的边界是“尾巴”在“头”前面了就停止递归；</span><br><span class="line">5. 再另外一个点就是可以利用 ES6 的“变量的解构赋值”实现交换元素，就不用再申请一个临时变量；【等我哪一天来整理一下ES6的变量解构赋值。。】</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 源代码如下：</span><br><span class="line"></span><br><span class="line">```javaScript</span><br><span class="line">/**</span><br><span class="line"> * @param &#123;character[]&#125; s</span><br><span class="line"> * @return &#123;void&#125; Do not return anything, modify s in-place instead.</span><br><span class="line"> */</span><br><span class="line">var reverseString = function(s) &#123;</span><br><span class="line">    // return s.reverse();</span><br><span class="line">    swap(0,s.length-1,s)</span><br><span class="line">    return s;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">function swap(start,end,s,)&#123;</span><br><span class="line">    if(start &gt;= end)&#123;</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line">    // 交换元素</span><br><span class="line">    [s[start],s[end]]=[s[end],s[start]];</span><br><span class="line">    </span><br><span class="line">    swap(start+1,end-1,s)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="第二道题-557-反转字符串中的单词-III"><a href="#第二道题-557-反转字符串中的单词-III" class="headerlink" title="第二道题[557. 反转字符串中的单词 III]"></a>第二道题[557. 反转字符串中的单词 III]</h2><h3 id="原题描述如下：-1"><a href="#原题描述如下：-1" class="headerlink" title="原题描述如下："></a>原题描述如下：</h3><img src="/2019/05/07/”leetcode-1-各种反转/2反转字符串中的单词III.jpg">
+<h3 id="思路如下：-1"><a href="#思路如下：-1" class="headerlink" title="思路如下："></a>思路如下：</h3><ol>
+<li>首先呢，题目的参数是字符串，那么其实一般会考虑说把字符串转化成数组，因为数组原生的方法比较多，可以直接利用数组原生的方法(等我哪一天来整理一下…妈呀希望旗子不要倒)</li>
+<li>那么由于在字符串中单词之间是以空格隔开的，因此可以利用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">3. 好了，接下来就是将数组中的每个元素[元素是个单词哦]内部的顺序调换一下就好了，调换顺序可以想到```reverse()```嘛</span><br><span class="line">4. 对数组的元素进行遍历的话，就可以用最原生的for呀，当然最简洁的还是用```map```(注意注意又是一个考点了，map，filter和reduce的区别，这个我后期一定会整理出来的)</span><br><span class="line">### 总结：</span><br><span class="line">emmm我觉得这道理的思路真的是很简单，但是我觉得主要考察的点还是对于数组和字符串原生方法的熟悉度，其实这个也是蛮重要的，在一些主要考思维的算法题，能够利用好一些原生的方法能节约很大的力气，而且对于空间、时间等也是有一定优势的。所以个人感觉需要透过简单题目得到启发去更熟练一下原生的方法。</span><br><span class="line"></span><br><span class="line">### 源代码如下：</span><br><span class="line"></span><br><span class="line">```javaScript</span><br><span class="line">/**</span><br><span class="line"> * @param &#123;string&#125; s</span><br><span class="line"> * @return &#123;string&#125;</span><br><span class="line"> */</span><br><span class="line">var reverseWords = function(s) &#123;</span><br><span class="line">    let arr = s.split(&quot; &quot;);</span><br><span class="line">    let result = arr.map(item =&gt; &#123;</span><br><span class="line">        return item.split(&quot;&quot;).reverse().join(&apos;&apos;)</span><br><span class="line">    &#125;)</span><br><span class="line">    return result.join(&apos; &apos;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="第三道题-7-整数反转"><a href="#第三道题-7-整数反转" class="headerlink" title="第三道题[7. 整数反转]"></a>第三道题[7. 整数反转]</h2><h3 id="原题描述如下：-2"><a href="#原题描述如下：-2" class="headerlink" title="原题描述如下："></a>原题描述如下：</h3><img src="/2019/05/07/”leetcode-1-各种反转/7整数反转.jpg">
+<h3 id="思路如下：-2"><a href="#思路如下：-2" class="headerlink" title="思路如下："></a>思路如下：</h3><ol>
+<li>首先还是跟上一道题差不多，因为很简单，所以直接调用一些原生的方法就可以解决；</li>
+<li>分为大的两种情况，超过32位的和没有超过的</li>
+<li>主要是正常的没有超过32位的又可以分为＞0，＜0，还有=0；然后直接处理就好</li>
+<li>但是我这道题跑了很多遍了还是没办法跑通所有的测试用例，卡在了32位上；还是蛮奇怪的，我还没找到原因(虽然我是用最粗暴地方法去判断2的32次方，但是也没毛病呀emmmm)<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3>总的来说这道理的思路真的是很简单，同样我觉得主要考察的点还是对于数组和字符串原生方法的熟悉度，但是这道题有大数限制有边缘判断emmm是的我还不会，所以下面贴上的也是我跑不过100%的代码（后续我去找解决方法更新上）<h3 id="源代码如下："><a href="#源代码如下：" class="headerlink" title="源代码如下："></a>源代码如下：</h3></li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; x</span></span><br><span class="line"><span class="comment"> * @return &#123;number&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> reverse = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//求绝对值</span></span><br><span class="line">    <span class="comment">// var t = Math.abs(x);   </span></span><br><span class="line">    <span class="keyword">if</span>(x&gt; <span class="number">2147483647</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(x&lt;<span class="number">-2147483648</span>)&#123;</span><br><span class="line">             <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(x &gt; <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">var</span> a =  x.toString().split(<span class="string">""</span>).reverse();</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Number</span>(<span class="built_in">parseInt</span>(a.join(<span class="string">''</span>)))</span><br><span class="line">         &#125;<span class="keyword">else</span> <span class="keyword">if</span>(x &lt; <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">var</span> x = -x;</span><br><span class="line">            <span class="keyword">var</span> a =  x.toString().split(<span class="string">""</span>).reverse();</span><br><span class="line">            <span class="keyword">var</span> b =  <span class="built_in">Number</span>(<span class="built_in">parseInt</span>(a.join(<span class="string">''</span>)))</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> -b;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="第四道题-206-反转链表"><a href="#第四道题-206-反转链表" class="headerlink" title="第四道题[206. 反转链表]"></a>第四道题[206. 反转链表]</h2><blockquote>
+<p>这道题跟剑指offer有点点不一样，剑指的感觉比较简单一点，这个感觉有点麻烦，可以用递归和迭代，晚上也是先做了一点，但是emm今晚没时间整理了，我需要早点回去睡觉所以先放个图</p>
+</blockquote>
+<img src="/2019/05/07/”leetcode-1-各种反转/4反转链表.jpg">
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/06/五月小记录/" rel="next" title="五月小记录">
+                <i class="fa fa-chevron-left"></i> 五月小记录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/22.jpg" alt="Yanzery">
+            
+              <p class="site-author-name" itemprop="name">Yanzery</p>
+              <p class="site-description motion-element" itemprop="description">记录技术、记录生活、记录小美好</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Leetcode之反转"><span class="nav-number">1.</span> <span class="nav-text">Leetcode之反转</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一道题-344-反转字符串"><span class="nav-number">1.1.</span> <span class="nav-text">第一道题[344. 反转字符串]</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原题描述如下："><span class="nav-number">1.1.1.</span> <span class="nav-text">原题描述如下：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路如下："><span class="nav-number">1.1.2.</span> <span class="nav-text">思路如下：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二道题-557-反转字符串中的单词-III"><span class="nav-number">1.2.</span> <span class="nav-text">第二道题[557. 反转字符串中的单词 III]</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原题描述如下：-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">原题描述如下：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路如下：-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">思路如下：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三道题-7-整数反转"><span class="nav-number">1.3.</span> <span class="nav-text">第三道题[7. 整数反转]</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原题描述如下：-2"><span class="nav-number">1.3.1.</span> <span class="nav-text">原题描述如下：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思路如下：-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">思路如下：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结："><span class="nav-number">1.3.3.</span> <span class="nav-text">总结：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#源代码如下："><span class="nav-number">1.3.4.</span> <span class="nav-text">源代码如下：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四道题-206-反转链表"><span class="nav-number">1.4.</span> <span class="nav-text">第四道题[206. 反转链表]</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yanzery</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("HJO17Az4WE4XEhSguQi3k7jC-gzGzoHsz", "ojxaHxwT2asBVOyR6DpKYLlL");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
