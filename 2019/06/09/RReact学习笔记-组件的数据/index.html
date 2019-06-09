@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/22.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/22.jpg?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端,react,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="组件的数据prop&amp;amp;state引入React组件的数据分为两种：prop和state，无论是prop还是state的改变都可能会引发组件的重新渲染，因此选择显得尤为重要。那么其实大体的原则也很简单，prop是组件对外的接口，state是组件内部的状态，即对外用prop对内用state。">
+<meta name="keywords" content="前端,react">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RReact学习笔记-组件的数据">
+<meta property="og:url" content="http://www.yanzery.cn/2019/06/09/RReact学习笔记-组件的数据/index.html">
+<meta property="og:site_name" content="YanzeryZero">
+<meta property="og:description" content="组件的数据prop&amp;amp;state引入React组件的数据分为两种：prop和state，无论是prop还是state的改变都可能会引发组件的重新渲染，因此选择显得尤为重要。那么其实大体的原则也很简单，prop是组件对外的接口，state是组件内部的状态，即对外用prop对内用state。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-09T12:41:42.177Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RReact学习笔记-组件的数据">
+<meta name="twitter:description" content="组件的数据prop&amp;amp;state引入React组件的数据分为两种：prop和state，无论是prop还是state的改变都可能会引发组件的重新渲染，因此选择显得尤为重要。那么其实大体的原则也很简单，prop是组件对外的接口，state是组件内部的状态，即对外用prop对内用state。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '燕子'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.yanzery.cn/2019/06/09/RReact学习笔记-组件的数据/">
+
+
+
+
+
+  <title>RReact学习笔记-组件的数据 | YanzeryZero</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YanzeryZero</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            目录
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.yanzery.cn/2019/06/09/RReact学习笔记-组件的数据/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yanzery">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/22.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YanzeryZero">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">RReact学习笔记-组件的数据</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-09T20:29:50+08:00">
+                2019-06-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/06/09/RReact学习笔记-组件的数据/" class="leancloud_visitors" data-flag-title="RReact学习笔记-组件的数据">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="组件的数据prop-amp-state"><a href="#组件的数据prop-amp-state" class="headerlink" title="组件的数据prop&amp;state"></a>组件的数据prop&amp;state</h1><h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>React组件的数据分为两种：prop和state，无论是prop还是state的改变都可能会引发组件的重新渲染，因此选择显得尤为重要。那么其实大体的原则也很简单，prop是组件对外的接口，state是组件内部的状态，即对外用prop对内用state。</p>
+<a id="more"></a>
+<h2 id="prop"><a href="#prop" class="headerlink" title="prop"></a>prop</h2><h3 id="什么是prop"><a href="#什么是prop" class="headerlink" title="什么是prop"></a>什么是prop</h3><p>在 <a href="https://react.docschina.org/docs/components-and-props.html" target="_blank" rel="noopener">React中文文档官网</a>的解释是：当 React 元素为用户自定义组件时，它会将 JSX 所接收的属性（attributes）转换为单个对象传递给组件，这个对象被称之为 “props”。但是，我总感觉这个有点拗口，prop就是从外部传递给组件的数据，一个React组件通过定义自己能够接受的prop就定义了自己的对外公共接口。组件之间通过prop来传递数据。</p>
+<h3 id="给prop赋值"><a href="#给prop赋值" class="headerlink" title="给prop赋值"></a>给prop赋值</h3><p>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;SampleButton </span><br><span class="line">id = <span class="string">"simple"</span> borderWidth = &#123;<span class="number">2</span>&#125; onClick = &#123;onButtonClick&#125; </span><br><span class="line">style = &#123;&#123;<span class="attr">color</span>:<span class="string">"red"</span>&#125;&#125;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+<p>在上面的例子中，创建了名为SampleButton的组件实例，使用了名字分<br>别为id、border Width、onClick和style的prop,React组件的prop所能支持<br>的类型则丰富得多，除了字符串，可以是任何一种JavaScript语言支持的数<br>据类型。</p>
+<h5 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h5><p>当prop的类型不是字符串类<br>型时，在JSX中必须用花括号{}把prop值包住，所以style的值有两层花括<br>号，外层花括号代表是JSX的语法，内层的花括号代表这是一个对象常量。</p>
+<p>当外部世界要传递一些数据给React组件，一个最直接的方式就是通过<br>prop；同样，React组件要反馈数据给外部世界，也可以用prop，因为prop的<br>类型不限于纯数据，也可以是函数，函数类型的prop等于让父组件交给了子<br>组件一个回调函数，子组件在恰当的实际调用函数类型的prop，可以带上必<br>要的参数，这样就可以反过来把信息传递给外部世界。</p>
+<h3 id="读取prop值"><a href="#读取prop值" class="headerlink" title="读取prop值"></a>读取prop值</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">        <span class="keyword">super</span>(props);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">        count: props.initValue || <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>子组件通过在构造函数中调用super（props），那么组件实例被构造之后，类实例的所有成员函数就可以通过this.props访问到父组件传递过来的props值。很明显，给this.props赋值是React.Component构造函数的工作之一。</li>
+<li>在构造函数中可以通过参数props获得传入prop值，在组件内部是通过其他函数中则可以通过this.props访问传入prop的值，</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;caption&#125; = <span class="keyword">this</span>.props;</span><br></pre></td></tr></table></figure>
+<h3 id="props-不可变"><a href="#props-不可变" class="headerlink" title="props 不可变"></a>props 不可变</h3><p><strong>props 一旦传入进来就不能改变</strong>。组件无论是使用函数声明还是通过 class 声明，都决不能修改自身的 props。所有 React组件都必须像纯函数一样保护它们的 props 不被更改。</p>
+<p>但是应用程序的 UI 是动态的，并会伴随着时间的推移而变化，那怎么ban？不急，有state。</p>
+<h2 id="state"><a href="#state" class="headerlink" title="state"></a>state</h2><p>State 与 props 类似，但是 state 是私有的，并且完全受控于当前组件。由于React组件不能修改传入的prop，所以需要记录自身数据变化，就要使用state。</p>
+<h3 id="初始化state"><a href="#初始化state" class="headerlink" title="初始化state"></a>初始化state</h3><p>通常在组件类的构造函数结尾处初始化state，通过对this.state的赋值完成了对组件state的初始化</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">        count: props.initValue || <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>组件的state必须是一个JavaScript对象，不能是string或者number这样的<br>简单数据类型，即使我们需要存储的只是一个数字类型的数据，也只能把它某个字段对应的值。</p>
+<h3 id="读取和更新state"><a href="#读取和更新state" class="headerlink" title="读取和更新state"></a>读取和更新state</h3><p>通过this.state可以读取到组件的当前state。<strong>但是</strong>，改变组件state必须要使用this.setState函数，而不能直接去修改this.state。</p>
+<p>直接修改this.state的值，虽然事实上改变了组件的内部状态，但只是野蛮地修改了state，<strong>却没有驱动组件进行重新渲染</strong>，既然组件没有重新渲染，当然不会反应this.state值的变化；而this.setState（）函数所做的事情，首先是<strong>改变this.state的值，然后驱动组件经历更新过程</strong>，这样才有机会让this.state里新的值出现在界面。</p>
+<p>this.setState（）接受一个<strong>对象</strong>或者函数作为参数。</p>
+<h4 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h4><p>传入一个对象的时候，<strong>这个对象表示该组件的新状态</strong>。但你只需要传入需要更新的部分就可以了，而不需要传入整个对象。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Correct</span></span><br><span class="line"><span class="keyword">this</span>.setState(&#123;<span class="attr">comment</span>: <span class="string">'Hello'</span>&#125;);</span><br></pre></td></tr></table></figure></p>
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><h5 id="State-的更新可能是异步的"><a href="#State-的更新可能是异步的" class="headerlink" title="State 的更新可能是异步的"></a>State 的更新可能是异步的</h5><p>出于性能考虑，React 可能会把多个 setState() 调用合并成一个调用。当你调用 setState 的时候，React.js 并不会马上修改state。而是把这个对象放到一个更新队列里面，稍后才会从队列当中把新的状态提取出来合并到 state 当中，然后再触发组件更新</p>
+<p>这里就自然地引出了 setState的第二种使用方式，可以接受一个函数作为参数。React.js 会把上一个 setState的结果传入这个函数，这个函数用上一个 state 作为第一个参数，将此次更新被应用时的 props 做为第二个参数，你就可以使用该结果进行运算、操作，然后返回一个对象作为更新 state 的对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Correct</span></span><br><span class="line"><span class="keyword">this</span>.setState(<span class="function">(<span class="params">state, props</span>) =&gt;</span> (&#123;</span><br><span class="line">  counter: state.counter + props.increment</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+<h2 id="props-VS-state"><a href="#props-VS-state" class="headerlink" title="props VS state"></a>props VS state</h2><ul>
+<li><strong>props</strong> 的主要作用是让使用该组件的父组件可以传入参数来配置该组件。它是外部传进来的配置参数，组件内部无法控制也无法修改。除非外部组件主动传入新的 props，否则组件的 props 永远保持不变。</li>
+<li>state 的主要作用是用于组件保存、控制、修改<strong>自己</strong>的可变状态。state 在组件内部初始化，<strong>可以被组件自身修改</strong>，而<strong>外部不能访问也不能修改</strong>。state 是一个局部的、只能被组件自身控制的数据源。state 中状态可以通过 this.setState 方法进行更新，setState 会导致组件的重新渲染。</li>
+</ul>
+<p>参考：【非常感谢！】</p>
+<p><a href="https://react.docschina.org/docs/introducing-jsx.html#jsx-is-an-expression-too" target="_blank" rel="noopener">react官方中文文档</a></p>
+<p><a href="http://huziketang.mangojuice.top/books/react/lesson6" target="_blank" rel="noopener">react.js小书</a></p>
+<p>深入浅出React和Redux</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/react/" rel="tag"># react</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/09/React学习笔记-JSX/" rel="next" title="React学习笔记-JSX">
+                <i class="fa fa-chevron-left"></i> React学习笔记-JSX
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/09/React学习笔记-Redux/" rel="prev" title="React学习笔记-Redux">
+                React学习笔记-Redux <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/22.jpg" alt="Yanzery">
+            
+              <p class="site-author-name" itemprop="name">Yanzery</p>
+              <p class="site-description motion-element" itemprop="description">记录技术、记录生活、记录小美好</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#组件的数据prop-amp-state"><span class="nav-number">1.</span> <span class="nav-text">组件的数据prop&amp;state</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引入"><span class="nav-number">1.1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#prop"><span class="nav-number">1.2.</span> <span class="nav-text">prop</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是prop"><span class="nav-number">1.2.1.</span> <span class="nav-text">什么是prop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#给prop赋值"><span class="nav-number">1.2.2.</span> <span class="nav-text">给prop赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#注意："><span class="nav-number">1.2.2.0.1.</span> <span class="nav-text">注意：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读取prop值"><span class="nav-number">1.2.3.</span> <span class="nav-text">读取prop值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#props-不可变"><span class="nav-number">1.2.4.</span> <span class="nav-text">props 不可变</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#state"><span class="nav-number">1.3.</span> <span class="nav-text">state</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化state"><span class="nav-number">1.3.1.</span> <span class="nav-text">初始化state</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读取和更新state"><span class="nav-number">1.3.2.</span> <span class="nav-text">读取和更新state</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对象"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#State-的更新可能是异步的"><span class="nav-number">1.3.2.2.1.</span> <span class="nav-text">State 的更新可能是异步的</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#props-VS-state"><span class="nav-number">1.4.</span> <span class="nav-text">props VS state</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yanzery</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("HJO17Az4WE4XEhSguQi3k7jC-gzGzoHsz", "ojxaHxwT2asBVOyR6DpKYLlL");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

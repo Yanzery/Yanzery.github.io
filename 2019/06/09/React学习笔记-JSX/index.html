@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/22.jpg?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/22.jpg?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端,react,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="React学习笔记-JSX引入首先，先来看一段非常简单的代码：1234567891011121314151617import React, &amp;#123; Component &amp;#125; from &apos;react&apos;import ReactDOM from &apos;react-dom&apos;class Header extends Component &amp;#123;  render () &amp;#123;    ret">
+<meta name="keywords" content="前端,react">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React学习笔记-JSX">
+<meta property="og:url" content="http://www.yanzery.cn/2019/06/09/React学习笔记-JSX/index.html">
+<meta property="og:site_name" content="YanzeryZero">
+<meta property="og:description" content="React学习笔记-JSX引入首先，先来看一段非常简单的代码：1234567891011121314151617import React, &amp;#123; Component &amp;#125; from &apos;react&apos;import ReactDOM from &apos;react-dom&apos;class Header extends Component &amp;#123;  render () &amp;#123;    ret">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.yanzery.cn/2019/06/09/React学习笔记-JSX/1.png">
+<meta property="og:updated_time" content="2019-06-09T12:41:39.990Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React学习笔记-JSX">
+<meta name="twitter:description" content="React学习笔记-JSX引入首先，先来看一段非常简单的代码：1234567891011121314151617import React, &amp;#123; Component &amp;#125; from &apos;react&apos;import ReactDOM from &apos;react-dom&apos;class Header extends Component &amp;#123;  render () &amp;#123;    ret">
+<meta name="twitter:image" content="http://www.yanzery.cn/2019/06/09/React学习笔记-JSX/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '燕子'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.yanzery.cn/2019/06/09/React学习笔记-JSX/">
+
+
+
+
+
+  <title>React学习笔记-JSX | YanzeryZero</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YanzeryZero</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            目录
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.yanzery.cn/2019/06/09/React学习笔记-JSX/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yanzery">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/22.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YanzeryZero">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">React学习笔记-JSX</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-09T20:28:28+08:00">
+                2019-06-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/06/09/React学习笔记-JSX/" class="leancloud_visitors" data-flag-title="React学习笔记-JSX">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="React学习笔记-JSX"><a href="#React学习笔记-JSX" class="headerlink" title="React学习笔记-JSX"></a>React学习笔记-JSX</h1><h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>首先，先来看一段非常简单的代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span></span><br><span class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Header</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render () &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;React 笔记&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>div&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;Header /&gt;,</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">'root'</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>还有这个：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const element = &lt;h1&gt;Hello, world!&lt;/h1&gt;;</span><br></pre></td></tr></table></figure>
+<p>一开始看完我是感觉有点奇怪的，这么粗暴地直接在 js 上直接嵌入 HTML 吗？好的，事实证明我这么简单粗暴的看法也是错的，这其实是一种JavaScript 的语法扩展，称为 <strong>JSX</strong>，这确实很容易让人联想到模板语言，但是它具有JavaScript的全部功能。那么接下来就来看看JSX的原理。</p>
+<h2 id="JSX-原理"><a href="#JSX-原理" class="headerlink" title="JSX 原理"></a>JSX 原理</h2><p>事实上：<strong>所谓的 JSX 其实就是 JavaScript 对象</strong>。我们可以思考类似上面的那段 JSX 用JavaScript对象应该怎么表示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&apos;box&apos; id=&apos;content&apos;&gt;</span><br><span class="line">  &lt;div class=&apos;title&apos;&gt;Hello&lt;/div&gt;</span><br><span class="line">  &lt;button&gt;Click&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>所有的信息我们都可以用合法的 JavaScript 对象来表示：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  tag: <span class="string">'div'</span>,</span><br><span class="line">  attrs: &#123; <span class="attr">className</span>: <span class="string">'box'</span>, <span class="attr">id</span>: <span class="string">'content'</span>&#125;,</span><br><span class="line">  children: [</span><br><span class="line">    &#123;</span><br><span class="line">      tag: <span class="string">'div'</span>,</span><br><span class="line">      arrts: &#123; <span class="attr">className</span>: <span class="string">'title'</span> &#125;,</span><br><span class="line">      children: [<span class="string">'Hello'</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      tag: <span class="string">'button'</span>,</span><br><span class="line">      attrs: <span class="literal">null</span>,</span><br><span class="line">      children: [<span class="string">'Click'</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>嘻嘻嘻，，发现了没有，HTML 的信息和 JavaScript 所包含的结构和信息其实是一样的，我们可以用 JavaScript 对象来描述所有能用 HTML 表示的 UI 信息。但是用 JavaScript 写起来太长了，结构看起来又不清晰，用 HTML 的方式写起来就方便很多了。</p>
+<p><strong>因此</strong>，把JavaScript 的语法扩展一下，让JavaScript语言能支持编写类似HTML标签结构的语法，这样会方便很多，在编译过程会把JSX结构转换成JavaScript的对象结构。<br>可以总结一下从JSX到页面经过什么样的过程：</p>
+<img src="/2019/06/09/React学习笔记-JSX/1.png">
+<p>那么问题又来啦，为什么不直接把JSX直接渲染成构造DOM结构呢，而要经过中间那一层呢？</p>
+<p>第一个原因是：我们拿到的这个表示UI的结构和信息的对象后不一定会把元素直接渲染到浏览器的普通页面上，例如我们转换成原生的APP（React Native可以开发原生APP）；</p>
+<p>第二个原因是：我们都知道直接操作DOM的开销太大了，太频繁地操作DOM势必会影响性能，那么如果有一个JavaScript对象后，当数据变化时或者需要更新组件是，就可以用比较快的算法操作js对象而不是直接页面的DOM，尽量少的减少浏览器重排，极大地优化性能。</p>
+<h2 id="JSX的使用"><a href="#JSX的使用" class="headerlink" title="JSX的使用"></a>JSX的使用</h2><h3 id="在-JSX-中嵌入表达式"><a href="#在-JSX-中嵌入表达式" class="headerlink" title="在 JSX 中嵌入表达式"></a>在 JSX 中嵌入表达式</h3><ol>
+<li>在JSX中使用变量，需要用大括号将其包裹起来：</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">'Yanzery'</span>;</span><br><span class="line"><span class="keyword">const</span> element = &lt;h1&gt;Hello, &#123;name&#125;&lt;/h1&gt;;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>可以在大括号内放置任何有效的 JavaScript 表达式。例如，2 + 2，user.firstName。</li>
+<li>JSX 也是一个表达式。例如，可以在 if 语句和 for 循环的代码块中使用 JSX，将 JSX 赋值给变量，把 JSX 当作参数传入，以及从函数中返回 JSX。</li>
+<li>使用 JSX 指定子元素。假如一个标签里面没有内容，你可以使用 /&gt; 来闭合标签，就像 XML 语法一样；同时JSX 标签里能够包含很多子元素:</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> element = &lt;img src=&#123;user.avatarUrl&#125; /&gt;;</span><br><span class="line"></span><br><span class="line">const element = (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h1&gt;Hello!&lt;/h1&gt;</span><br><span class="line">    &lt;h2&gt;Good to see you here.&lt;/h2&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h3 id="另外哦："><a href="#另外哦：" class="headerlink" title="另外哦："></a>另外哦：</h3><p>可以安全地在 JSX 当中插入用户输入内容，因为React DOM 在渲染所有输入内容之前，默认会进行转义。它可以确保在你的应用中，永远不会注入那些并非自己明确编写的内容。所有的内容在渲染之前都被转换成了字符串。这样可以有效地防止 XSS（cross-site-scripting, 跨站脚本）攻击。</p>
+<h2 id="在JSX元素中直接添加事件绑定"><a href="#在JSX元素中直接添加事件绑定" class="headerlink" title="在JSX元素中直接添加事件绑定"></a>在JSX元素中直接添加事件绑定</h2><p>在HTML中直接书写onclick一直就是为人诟病的写法，网页应用开发界一<br>直倡导的是用jQuery的方法添加事件处理函数，直接写onclick会带来代码混<br>乱的问题。<strong>但是！</strong>，不得不承认直接添加事件绑定实在是太<strong>方便</strong>啦~</p>
+<p>那么你发现没有，在JSX中同样也可以通过onClick这样的方式给一个元素添加一个事件处理函数，这是时代倒退了还是进步了呢？实际上呢，JSX的onClick事件处理方式和HTML的onclick有很大不同的哦！</p>
+<p>即使现在，我们还是要说在HTML中直接使用onclick很不专业，原因如<br>下：</p>
+<ul>
+<li><p>onclick添加的事件处理函数是在全局环境下执行的，这污染了全局环<br>境，很容易产生意料不到的后果；</p>
+</li>
+<li><p>给很多DOM元素添加onclick事件，可能会影响网页的性能，毕竟，网页需要的事件处理函数越多，性能就会越低；</p>
+</li>
+<li><p>对于使用onclick的DOM元素，如果要动态地从DOM树中删掉的话，需<br>要把对应的时间处理器注销，假如忘了注销，就可能造成内存泄露，这样的<br>bug很难被发现。</p>
+</li>
+</ul>
+<p><strong>然而在上面说的这些问题，在JSX中都不存在。</strong></p>
+<ol>
+<li>onClick挂载的每个函数，都可以控制在组件范围内，不会污染<br>全局空间。</li>
+<li>onClick，实际上是使用了<strong>事件委托</strong>的方式处理点击事件，无论有多少个onClick出现，其实最后都只在DOM树上添加了一个事件处理函数，挂在最顶层的DOM节点上。所有的点击事件都被这个事件处理函数捕获，然后根据具体组件分配给特定函数，使用事件委托的性能当然要比为每个onClick都挂载一个事件处理函数<br>要高。</li>
+<li>React控制了组件的生命周期，在unmount的时候自然能够清除相关<br>的所有事件处理函数，内存泄露也不再是一个问题。</li>
+</ol>
+<p>React的组件可以把JavaScript、HTML和CSS的功能在一个文件<br>中，实现真正的组件封装【只是没有像vue.js那么明显，小声逼逼，我还是爱Vue的】</p>
+<p>参考：【非常感谢！】</p>
+<p><a href="https://react.docschina.org/docs/introducing-jsx.html#jsx-is-an-expression-too" target="_blank" rel="noopener">react官方中文文档</a></p>
+<p><a href="http://huziketang.mangojuice.top/books/react/lesson6" target="_blank" rel="noopener">react.js小书</a></p>
+<p>深入浅出React和Redux</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/react/" rel="tag"># react</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/09/D-study-project-kk/" rel="next" title="D:/study/project/kk">
+                <i class="fa fa-chevron-left"></i> D:/study/project/kk
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/09/RReact学习笔记-组件的数据/" rel="prev" title="RReact学习笔记-组件的数据">
+                RReact学习笔记-组件的数据 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/22.jpg" alt="Yanzery">
+            
+              <p class="site-author-name" itemprop="name">Yanzery</p>
+              <p class="site-description motion-element" itemprop="description">记录技术、记录生活、记录小美好</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#React学习笔记-JSX"><span class="nav-number">1.</span> <span class="nav-text">React学习笔记-JSX</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#引入"><span class="nav-number">1.1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSX-原理"><span class="nav-number">1.2.</span> <span class="nav-text">JSX 原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSX的使用"><span class="nav-number">1.3.</span> <span class="nav-text">JSX的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在-JSX-中嵌入表达式"><span class="nav-number">1.3.1.</span> <span class="nav-text">在 JSX 中嵌入表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#另外哦："><span class="nav-number">1.3.2.</span> <span class="nav-text">另外哦：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在JSX元素中直接添加事件绑定"><span class="nav-number">1.4.</span> <span class="nav-text">在JSX元素中直接添加事件绑定</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yanzery</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("HJO17Az4WE4XEhSguQi3k7jC-gzGzoHsz", "ojxaHxwT2asBVOyR6DpKYLlL");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
